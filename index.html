@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yolca</title>
+  <meta name="description" content="Yolca は京都を拠点とするソフトウェア開発者です。語学学習アプリ Memoreo を開発・運営しています。">
+  <style>
+    :root {
+      --bg: #0F1929;
+      --surface: #14202E;
+      --ink: #E7EFEB;
+      --ink-2: #93AAA3;
+      --accent: #3DDC97;
+      --rule: #223349;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 72px 24px 96px; }
+    header { border-bottom: 1px solid var(--rule); padding-bottom: 40px; margin-bottom: 48px; }
+    h1 { font-size: 40px; letter-spacing: 0.02em; }
+    h1 span { color: var(--accent); }
+    .tagline { color: var(--ink-2); margin-top: 8px; font-size: 15px; }
+    h2 {
+      font-size: 14px; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--accent); margin: 48px 0 16px;
+    }
+    p { max-width: 62ch; color: var(--ink); font-size: 15.5px; }
+    .muted { color: var(--ink-2); }
+    .card {
+      background: var(--surface); border: 1px solid var(--rule);
+      border-radius: 14px; padding: 24px 28px; margin-top: 12px;
+    }
+    .card h3 { font-size: 18px; margin-bottom: 6px; }
+    .card .en { color: var(--ink-2); font-size: 13px; margin-bottom: 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 14px; }
+    footer {
+      margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--rule);
+      color: var(--ink-2); font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Yolca<span>.</span></h1>
+      <p class="tagline">Software from Kyoto, Japan — 学びを、続けられるかたちに。</p>
+    </header>
+
+    <main>
+      <h2>About</h2>
+      <p>
+        Yolca は京都を拠点に活動するソフトウェア開発者（個人事業）です。
+        毎日の学習が無理なく続くことを大切に、モバイルアプリを開発・運営しています。
+      </p>
+      <p class="muted" style="margin-top: 8px; font-size: 13.5px;">
+        Yolca is an independent software developer based in Kyoto, Japan,
+        building mobile apps that make daily learning effortless.
+      </p>
+
+      <h2>Products</h2>
+      <div class="card">
+        <h3>Memoreo — 写真で英単語を一括登録</h3>
+        <p class="en">AI vocabulary app: snap a photo, get flashcards.</p>
+        <p style="font-size: 14.5px;">
+          単語帳を撮るだけで、AIが単語と訳を読み取ってまとめて登録。
+          例文・熟語・覚え方の生成から、忘却曲線に基づく復習まで。
+          単語帳を「作る」労働をなくすアプリです。
+        </p>
+        <div class="links">
+          <a href="https://apps.apple.com/app/id6790348995">App Store</a>
+          <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー / 利用規約</a>
+        </div>
+      </div>
+
+      <h2>Contact</h2>
+      <p>
+        お問い合わせ: <a href="mailto:yolca.support@gmail.com">yolca.support@gmail.com</a>
+      </p>
+      <p class="muted" style="font-size: 13.5px; margin-top: 6px;">
+        所在地: 京都市下京区朱雀宝蔵町44 協栄ビル2階 京都朱雀スタジオBA
+      </p>
+    </main>
+
+    <footer>
+      © 2026 Yolca (Wataru Fujita). All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
