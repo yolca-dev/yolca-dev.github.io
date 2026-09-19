@@ -41,6 +41,10 @@
     .card .en { color: var(--ink-2); font-size: 13px; margin-bottom: 12px; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .card video {
+      display: block; width: 100%; max-width: 320px; height: auto;
+      margin: 18px auto 4px; border-radius: 12px; background: #000;
+    }
     .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 14px; }
     footer {
       margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--rule);
@@ -75,6 +79,8 @@
           例文・熟語・覚え方の生成から、忘却曲線に基づく復習まで。
           単語帳を「作る」労働をなくすアプリです。
         </p>
+        <video src="assets/memoreo-intro-ja.mp4" poster="assets/memoreo-intro-ja-poster.jpg"
+               width="1080" height="1920" controls playsinline preload="metadata"></video>
         <div class="links">
           <a href="https://apps.apple.com/app/id6790348995">App Store</a>
           <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー / 利用規約</a>
