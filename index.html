@@ -80,6 +80,17 @@
       display: block; width: 100%; max-width: 320px; height: auto;
       margin: 18px auto 4px; border-radius: 12px; background: #000;
     }
+    .tabs {
+      display: flex; gap: 4px; padding: 4px;
+      background: var(--surface); border: 1px solid var(--rule); border-radius: 999px;
+    }
+    .tabs button {
+      flex: 1; min-height: 44px; border: 0; border-radius: 999px;
+      background: transparent; color: var(--ink-2);
+      font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer;
+    }
+    .tabs button[aria-selected="true"] { background: var(--accent); color: #000; }
+    .tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 14px; }
     footer {
       max-width: 560px; margin: 0 auto; padding: 0 20px 56px;
@@ -112,7 +123,7 @@
         <img src="assets/kakomon-icon.png" alt="" width="1024" height="1024">
         <div>
           <h2>過去問レコード</h2>
-          <p>過去問演習の結果を記録して振り返る</p>
+          <p>受験生の過去問演習を、記録して振り返る</p>
         </div>
       </div>
       <div class="store-badges">
@@ -139,8 +150,12 @@
       building mobile apps that make daily learning effortless.
     </p>
 
-    <h3 class="sec">Memoreo</h3>
-    <div class="card">
+    <h3 class="sec">Products</h3>
+    <div class="tabs" role="tablist" aria-label="アプリ">
+      <button type="button" role="tab" id="tab-memoreo" aria-controls="panel-memoreo" aria-selected="true">Memoreo</button>
+      <button type="button" role="tab" id="tab-kakomon" aria-controls="panel-kakomon" aria-selected="false" tabindex="-1">過去問レコード</button>
+    </div>
+    <div class="card" role="tabpanel" id="panel-memoreo" aria-labelledby="tab-memoreo">
       <h4>Memoreo — 写真で英単語を一括登録</h4>
       <p class="en">AI vocabulary app: snap a photo, get flashcards.</p>
       <p style="font-size: 14.5px;">
@@ -153,6 +168,20 @@
       <div class="links">
         <a href="https://apps.apple.com/app/id6790348995">App Store</a>
         <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー / 利用規約</a>
+      </div>
+    </div>
+    <div class="card" role="tabpanel" id="panel-kakomon" aria-labelledby="tab-kakomon" hidden>
+      <h4>過去問レコード — 大学別・年度別に過去問の得点を記録</h4>
+      <p style="font-size: 14.5px;">
+        解いた過去問を、大学ごと・年度ごとに整理して残せるアプリです。
+        どの大学の、いつの、どの大問で、何点取れたかを記録し、
+        年度ごとの得点の伸びをグラフで見られます。
+      </p>
+      <video src="assets/kakomon-ad-ja.mp4" poster="assets/kakomon-ad-ja-poster.jpg"
+             width="1080" height="1920" controls playsinline preload="metadata"></video>
+      <div class="links">
+        <a href="https://apps.apple.com/jp/app/id6802140240">App Store</a>
+        <a href="https://yolca-dev.github.io/kakomon-privacy/">プライバシーポリシー</a>
       </div>
     </div>
 
@@ -168,9 +197,36 @@
   <footer>
     <div class="foot-links">
       <a href="mailto:contact@yolca.dev">contact@yolca.dev</a>
-      <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー</a>
+      <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー（Memoreo）</a>
+      <a href="https://yolca-dev.github.io/kakomon-privacy/">プライバシーポリシー（過去問レコード）</a>
     </div>
     © 2026 Yolca (Wataru Fujita). All rights reserved.
   </footer>
+  <script>
+    // アプリ紹介のタブ。切り替えたら、隠れた側の動画は止める
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          panel.hidden = !on;
+          if (!on) panel.querySelectorAll('video').forEach(function (v) { v.pause(); });
+        });
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { select(t); });
+        t.addEventListener('keydown', function (e) {
+          var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!d) return;
+          var next = tabs[(i + d + tabs.length) % tabs.length];
+          select(next);
+          next.focus();
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
