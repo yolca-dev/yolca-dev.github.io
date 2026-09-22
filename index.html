@@ -76,6 +76,9 @@
     .muted { color: var(--ink-2); }
     /* 和文を文節のまとまりごとに折り返す(スマホ・PC のどちらでも、意味の切れ目で改行されるように) */
     .phrases span { display: inline-block; }
+    /* 見出しの「—」より後ろは1つのまとまりにする。1行に収まらない幅では「—」の後で改行し、
+       それでも収まらないときだけ、まとまりの中の文節の区切りで折り返す */
+    .phrases .grp { max-width: 100%; }
     .wrap p { text-wrap: pretty; }
     .card {
       background: var(--surface); border: 1px solid var(--rule);
@@ -160,7 +163,7 @@
       <button type="button" role="tab" id="tab-kakomon" aria-controls="panel-kakomon" aria-selected="false" tabindex="-1">過去問レコード</button>
     </div>
     <div class="card" role="tabpanel" id="panel-memoreo" aria-labelledby="tab-memoreo">
-      <h4 class="phrases"><span>Memoreo —</span> <span>写真で英単語を</span><span>一括登録</span></h4>
+      <h4 class="phrases"><span>Memoreo —</span> <span class="grp"><span>写真で英単語を</span><span>一括登録</span></span></h4>
       <p class="en">AI vocabulary app: snap a photo, get flashcards.</p>
       <p class="phrases" style="font-size: 14.5px;"><span>単語帳を撮るだけで、</span><span>AIが単語と訳を</span><span>読み取って</span><span>まとめて登録。</span><span>例文・熟語・</span><span>覚え方の生成から、</span><span>忘却曲線に基づく</span><span>復習まで。</span><span>単語帳を「作る」</span><span>労働をなくす</span><span>アプリです。</span></p>
       <video src="assets/memoreo-intro-ja.mp4" poster="assets/memoreo-intro-ja-poster.jpg"
@@ -171,7 +174,7 @@
       </div>
     </div>
     <div class="card" role="tabpanel" id="panel-kakomon" aria-labelledby="tab-kakomon" hidden>
-      <h4 class="phrases"><span>過去問レコード —</span> <span>大学別・</span><span>年度別に</span><span>過去問の得点を記録</span></h4>
+      <h4 class="phrases"><span>過去問レコード —</span> <span class="grp"><span>大学別・</span><span>年度別に</span><span>過去問の得点を記録</span></span></h4>
       <p class="phrases" style="font-size: 14.5px;"><span>解いた過去問を、</span><span>大学ごと・</span><span>年度ごとに</span><span>整理して残せる</span><span>アプリです。</span><span>どの大学の、</span><span>いつの、</span><span>どの大問で、</span><span>何点取れたかを</span><span>記録し、</span><span>年度ごとの</span><span>得点の伸びを</span><span>グラフで見られます。</span></p>
       <!-- 既定は10月版(キャンペーン文言なし)。2026-10-01 00:00 JST より前だけ、スクリプトで9月版に替える -->
       <video id="kakomon-video" src="assets/kakomon-ad-ja-oct.mp4" poster="assets/kakomon-ad-ja-oct-poster.jpg"
