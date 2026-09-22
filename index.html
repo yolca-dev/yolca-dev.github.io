@@ -113,7 +113,7 @@
         </div>
       </div>
       <div class="store-badges">
-        <a href="https://apps.apple.com/jp/app/id6790348995"><img src="assets/badges/app-store-ja.svg" alt="App Storeでダウンロード"></a>
+        <a href="https://apps.apple.com/app/id6790348995"><img src="assets/badges/app-store-ja.svg" alt="App Storeでダウンロード"></a>
         <a href="https://play.google.com/store/apps/details?id=com.yolca.memoreo"><img class="play" src="assets/badges/google-play-ja.png" alt="Google Playで手に入れよう"></a>
       </div>
     </section>
@@ -177,7 +177,9 @@
         どの大学の、いつの、どの大問で、何点取れたかを記録し、
         年度ごとの得点の伸びをグラフで見られます。
       </p>
-      <video src="assets/kakomon-ad-ja.mp4" poster="assets/kakomon-ad-ja-poster.jpg"
+      <!-- 既定は10月版(キャンペーン文言なし)。2026-10-01 00:00 JST より前だけ、スクリプトで9月版に替える -->
+      <video id="kakomon-video" src="assets/kakomon-ad-ja-oct.mp4" poster="assets/kakomon-ad-ja-oct-poster.jpg"
+             data-sep-src="assets/kakomon-ad-ja.mp4" data-sep-poster="assets/kakomon-ad-ja-poster.jpg"
              width="1080" height="1920" controls playsinline preload="metadata"></video>
       <div class="links">
         <a href="https://apps.apple.com/jp/app/id6802140240">App Store</a>
@@ -203,6 +205,16 @@
     © 2026 Yolca (Wataru Fujita). All rights reserved.
   </footer>
   <script>
+    // 過去問レコードの動画: 9月版の最後は「9月中にはじめると、ずっと無料」の案内なので、
+    // 2026-10-01 00:00(日本時間)より前だけ9月版を出す。判定は端末の時計による。
+    // スクリプトが動かない場合は、HTML に書いた10月版のまま(案内の無い側)になる
+    (function () {
+      var v = document.getElementById('kakomon-video');
+      if (Date.now() < Date.UTC(2026, 8, 30, 15, 0, 0)) {
+        v.poster = v.getAttribute('data-sep-poster');
+        v.src = v.getAttribute('data-sep-src');
+      }
+    })();
     // アプリ紹介のタブ。切り替えたら、隠れた側の動画は止める
     (function () {
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
