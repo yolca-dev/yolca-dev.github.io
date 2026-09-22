@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yolca</title>
-  <meta name="description" content="Yolca は京都を拠点とするソフトウェア開発者です。語学学習アプリ Memoreo を開発・運営しています。">
+  <meta name="description" content="Yolca は、現役の医学生として、学びを楽にし継続を支えるアプリを開発しています。">
   <style>
     :root {
       --bg: #000000;
@@ -51,6 +51,10 @@
       margin-top: 12px;
     }
     .store-badges img { display: block; height: 44px; width: auto; }
+    /* Google Play の公式 PNG は上下に透明の余白(250px 中 29px ずつ)を含む。
+       見える部分の高さを App Store と同じ 44px にするため、画像ごと拡大して余白ぶんを負のマージンで打ち消す
+       (画像そのものは切り抜かない。44 × 250 / 192 = 57.3px、余白 57.3 × 29 / 250 = 6.65px) */
+    .store-badges img.play { height: 57.3px; margin: -6.65px 0; }
     .sns { display: flex; justify-content: center; gap: 10px; margin: 26px 0 6px; }
     .sns a {
       display: flex; align-items: center; justify-content: center;
@@ -70,6 +74,9 @@
     h3.sec:first-child { margin-top: 0; }
     .wrap p { font-size: 15px; }
     .muted { color: var(--ink-2); }
+    /* 和文を文節のまとまりごとに折り返す(スマホ・PC のどちらでも、意味の切れ目で改行されるように) */
+    .phrases span { display: inline-block; }
+    .wrap p { text-wrap: pretty; }
     .card {
       background: var(--surface); border: 1px solid var(--rule);
       border-radius: 14px; padding: 22px 24px; margin-top: 12px;
@@ -141,13 +148,10 @@
 
   <div class="wrap">
     <h3 class="sec">About</h3>
-    <p>
-      Yolca は京都を拠点に活動するソフトウェア開発者（個人事業）です。
-      毎日の学習が無理なく続くことを大切に、モバイルアプリを開発・運営しています。
-    </p>
+    <p class="phrases"><span>Yolca は、現役の医学生として、</span><span>多くの人の学びを楽にし、</span><span>本質に時間をかけられるよう、</span><span>学びの継続を支えることを</span><span>目標に</span><span>アプリを開発しています。</span></p>
     <p class="muted" style="margin-top: 8px; font-size: 13.5px;">
-      Yolca is an independent software developer based in Kyoto, Japan,
-      building mobile apps that make daily learning effortless.
+      Yolca is a medical student building apps that make learning easier,
+      so people can spend their time on what matters and keep going.
     </p>
 
     <h3 class="sec">Products</h3>
@@ -202,7 +206,7 @@
       <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー（Memoreo）</a>
       <a href="https://yolca-dev.github.io/kakomon-privacy/">プライバシーポリシー（過去問レコード）</a>
     </div>
-    © 2026 Yolca (Wataru Fujita). All rights reserved.
+    © 2026 Yolca. All rights reserved.
   </footer>
   <script>
     // 過去問レコードの動画: 9月版の最後は「9月中にはじめると、ずっと無料」の案内なので、
