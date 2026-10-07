@@ -102,11 +102,19 @@
     .tabs button[aria-selected="true"] { background: var(--accent); color: #000; }
     .tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 14px; }
+    /* Products の詳細カード: 見出しにアプリアイコン(2026-10-07)。ストアは1画面目のカードと同じ公式バッジ(.store-badges) */
+    .card-head { display: flex; gap: 12px; align-items: center; margin-bottom: 6px; }
+    .card-head img { width: 44px; height: 44px; border-radius: 11px; flex: none; }
+    .card-head h4 { margin-bottom: 0; }
+    .card .store-badges { margin-top: 18px; }
     footer {
       max-width: 560px; margin: 0 auto; padding: 0 20px 56px;
       color: var(--ink-2); font-size: 13px;
     }
     footer .foot-links { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+    /* プライバシーポリシーは1つのまとまり(2026-10-07)。リンク先は従来と同じ */
+    footer .foot-privacy { display: block; }
+    footer .foot-privacy a + a::before { content: "/"; color: var(--ink-2); margin: 0 8px; display: inline-block; }
   </style>
 </head>
 <body>
@@ -164,28 +172,38 @@
       <button type="button" role="tab" id="tab-kakomon" aria-controls="panel-kakomon" aria-selected="false" tabindex="-1">過去問レコード</button>
     </div>
     <div class="card" role="tabpanel" id="panel-memoreo" aria-labelledby="tab-memoreo">
-      <h4 class="phrases"><span>Memoreo —</span> <span class="grp"><span>写真で英単語を</span><span>一括登録</span></span></h4>
+      <div class="card-head">
+        <img src="assets/memoreo-icon-180.png" alt="" width="180" height="180">
+        <h4 class="phrases"><span>Memoreo —</span> <span class="grp"><span>写真で英単語を</span><span>一括登録</span></span></h4>
+      </div>
       <p class="en">AI vocabulary app: snap a photo, get flashcards.</p>
       <p class="phrases" style="font-size: min(14.5px, calc((100vw - 90px) / 21.5));"><span>紙の単語を、</span><span>写真でまるごと</span><span>デジタル化。</span><br><span>教科書もプリントも、</span><span>撮るだけで</span><span>単語帳に。</span><br><span>わからない単語も、</span><span>写真を撮れば</span><span>調べられる。</span><br><span>AIが例文・熟語・</span><span>覚え方まで</span><span>作ります。</span></p>
       <video src="assets/memoreo-intro-ja.mp4" poster="assets/memoreo-intro-ja-poster.jpg"
              width="1080" height="1920" controls playsinline preload="metadata"></video>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/app/id6790348995"><img src="assets/badges/app-store-ja.svg" alt="App Storeでダウンロード"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.yolca.memoreo"><img class="play" src="assets/badges/google-play-ja.png" alt="Google Playで手に入れよう"></a>
+      </div>
       <div class="links">
-        <a href="https://apps.apple.com/app/id6790348995">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.yolca.memoreo">Google Play</a>
         <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー / 利用規約</a>
       </div>
     </div>
     <div class="card" role="tabpanel" id="panel-kakomon" aria-labelledby="tab-kakomon" hidden>
-      <h4 class="phrases"><span>過去問レコード —</span> <span class="grp"><span>大学別・</span><span>年度別に</span><span>過去問の得点を記録</span></span></h4>
+      <div class="card-head">
+        <img src="assets/kakomon-icon-180.png" alt="" width="180" height="180">
+        <h4 class="phrases"><span>過去問レコード —</span> <span class="grp"><span>大学別・</span><span>年度別に</span><span>過去問の得点を記録</span></span></h4>
+      </div>
       <p class="phrases" style="font-size: 14.5px;"><span>解いた過去問を、</span><span>大学ごと・</span><span>年度ごとに</span><span>整理して残せる</span><span>アプリです。</span><span>どの大学の、</span><span>いつの、</span><span>どの大問で、</span><span>何点取れたかを</span><span>記録し、</span><span>年度ごとの</span><span>得点の伸びを</span><span>グラフで見られます。</span></p>
       <!-- 既定は 2026-10-07 に差し替えた宣伝動画のキャンペーン版(締めに「10月31日まで ¥300 → 11月1日から ¥500になります」)。
            11月1日の朝に通常版へ差し替える(kakomon-app の docs/nov1_runbook.md)。2026-10-01 00:00 JST より前だけ、スクリプトで9月版に替える -->
       <video id="kakomon-video" src="assets/kakomon-ad-ja-v2-campaign.mp4" poster="assets/kakomon-ad-ja-v2-poster.jpg"
              data-sep-src="assets/kakomon-ad-ja.mp4" data-sep-poster="assets/kakomon-ad-ja-poster.jpg"
              width="1080" height="1920" controls playsinline preload="metadata"></video>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/jp/app/id6802140240"><img src="assets/badges/app-store-ja.svg" alt="App Storeでダウンロード"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.yolca.kakomon"><img class="play" src="assets/badges/google-play-ja.png" alt="Google Playで手に入れよう"></a>
+      </div>
       <div class="links">
-        <a href="https://apps.apple.com/jp/app/id6802140240">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.yolca.kakomon">Google Play</a>
         <a href="https://yolca-dev.github.io/kakomon-privacy/">プライバシーポリシー</a>
       </div>
     </div>
@@ -197,11 +215,9 @@
   </div>
 
   <footer>
-    <div class="foot-links">
-      <a href="mailto:contact@yolca.dev">contact@yolca.dev</a>
-      <a href="https://yolca-dev.github.io/memoreo-privacy/">プライバシーポリシー（Memoreo）</a>
-      <a href="https://yolca-dev.github.io/kakomon-privacy/">プライバシーポリシー（過去問レコード）</a>
-    </div>
+    <p class="foot-links foot-privacy">
+      プライバシーポリシー: <a href="https://yolca-dev.github.io/memoreo-privacy/">Memoreo</a><a href="https://yolca-dev.github.io/kakomon-privacy/">過去問レコード</a>
+    </p>
     © 2026 Yolca. All rights reserved.
   </footer>
   <script>
