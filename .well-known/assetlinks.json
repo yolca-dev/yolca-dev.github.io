@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.yolca.memoreo",
+      "sha256_cert_fingerprints": ["72:39:46:3E:54:5D:98:15:51:84:3B:E9:74:55:1C:87:4D:70:E8:3C:6A:B6:0B:C6:81:66:D5:1E:99:30:94:93"]
+    }
+  }
+]

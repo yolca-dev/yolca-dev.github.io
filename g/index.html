@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  友達・グループの招待のリンクのページ(2026-10-27・案・公開していない)
+  - 置き場: yolca.dev/g/(このフォルダごと yolca-site の直下に。置き方の注意は ../README.md)
+  - リンクの形: https://yolca.dev/g/#<招待コード 10 文字>(アプリの lib/ranking/group_link.dart の groupLink と同じ)
+  - アプリが入っていれば、OS がこのページを開かずにアプリを開く(iOS = Universal Links・Android = App Links)。
+    ここに来るのは、アプリが入っていない人(と、リンクの確かめができていない端末)
+  - コードは # の後にある。ブラウザは # の後をサーバーへ送らないので、配信元(GitHub Pages)の記録にコードは残らない。
+    このページも外へは何も送らない(外の読み込みなし・フォント・スクリプトも)
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Memoreo</title>
+<style>
+  :root { --bg: #f5f7fa; --card: #ffffff; --text: #141a26; --sub: #4a5468; --line: #dfe5ec; --accent: #07633e; --on-accent: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #090e1a; --card: #0f1929; --text: #edf1fa; --sub: #889ab0; --line: #1e2c3e; --accent: #3ddc97; --on-accent: #06121f; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width: 520px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 8px; }
+  p { color: var(--sub); margin: 0 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; text-align: center; }
+  .label { font-size: 14px; color: var(--sub); margin-bottom: 4px; }
+  .code { font: 700 30px/1.3 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.08em; overflow-wrap: anywhere; user-select: all; }
+  .copy { margin-top: 12px; min-height: 44px; padding: 0 20px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 600 15px system-ui, sans-serif; cursor: pointer; }
+  .steps { margin: 20px 0 0; color: var(--text); }
+  .stores { display: grid; gap: 10px; margin-top: 20px; }
+  .stores a { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 12px; background: var(--accent); color: var(--on-accent); font-weight: 700; text-decoration: none; }
+  .missing { color: var(--text); }
+  .lang { text-align: right; font-size: 14px; margin-bottom: 12px; }
+  .lang a { color: var(--sub); margin-left: 8px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="lang" id="langs"></div>
+  <h1 id="title"></h1>
+  <p id="lead"></p>
+  <div class="card" id="withCode" hidden>
+    <div class="label" id="codeLabel"></div>
+    <div class="code" id="code"></div>
+    <button type="button" class="copy" id="copy"></button>
+  </div>
+  <p class="card missing" id="missing" hidden></p>
+  <p class="steps" id="steps"></p>
+  <div class="stores">
+    <a id="appStore" href="https://apps.apple.com/app/id6790348995">App Store</a>
+    <a id="googlePlay" href="https://play.google.com/store/apps/details?id=com.yolca.memoreo">Google Play</a>
+  </div>
+</main>
+<script>
+  // 文言は案(docs/ranking/strings-groups.md)。「」の中はアプリの画面の表記(lib/ranking/ranking_strings.dart の tabLabel・segGroups・gJoin)と同じ
+  const T = {
+    ja: { title: 'グループへの招待', lead: 'Memoreo のランキングのグループに招待されています。', code: '招待コード', copy: 'コピー', copied: 'コピーしました',
+          steps: 'アプリを入れて、「ランキング」→「グループ」→「コードで参加」にこのコードを入れてください。',
+          missing: 'このリンクには招待コードが含まれていません。招待した人にコードを聞いてください。' },
+    en: { title: 'Group invitation', lead: "You've been invited to a group in the Memoreo ranking.", code: 'Invite code', copy: 'Copy', copied: 'Copied',
+          steps: 'Install the app, then go to "Ranking" → "Groups" → "Join with a code" and enter this code.',
+          missing: "This link doesn't contain an invite code. Ask the person who invited you for the code." },
+    es: { title: 'Invitación a un grupo', lead: 'Te han invitado a un grupo del ranking de Memoreo.', code: 'Código de invitación', copy: 'Copiar', copied: 'Copiado',
+          steps: 'Instala la app y ve a «Ranking» → «Grupos» → «Unirse con un código» e introduce este código.',
+          missing: 'Este enlace no incluye ningún código de invitación. Pide el código a la persona que te invitó.' },
+    ru: { title: 'Приглашение в группу', lead: 'Вас пригласили в группу рейтинга Memoreo.', code: 'Код приглашения', copy: 'Копировать', copied: 'Скопировано',
+          steps: 'Установите приложение и откройте «Рейтинг» → «Группы» → «Войти по коду», затем введите этот код.',
+          missing: 'В этой ссылке нет кода приглашения. Попросите код у того, кто вас пригласил.' },
+    zh: { title: '群组邀请', lead: '你被邀请加入 Memoreo 排行榜中的群组。', code: '邀请码', copy: '复制', copied: '已复制',
+          steps: '请先安装应用，然后依次点击“排行榜”→“群组”→“用邀请码加入”，输入此邀请码。',
+          missing: '此链接不含邀请码。请向邀请你的人索取邀请码。' },
+  };
+  const NAMES = { ja: '日本語', en: 'English', es: 'Español', ru: 'Русский', zh: '中文' };
+
+  // コード: # の後の英数字 10 文字(アプリの groupCodeFromLink と同じ読み方)。違えば「含まれていません」
+  function codeFromHash(hash) {
+    const t = decodeURIComponent(hash.replace(/^#/, '')).toUpperCase().replace(/[^0-9A-Z]/g, '');
+    return t.length === 10 ? t.slice(0, 5) + '-' + t.slice(5) : '';
+  }
+
+  function pickLang() {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (q && T[q]) return q;
+    for (const l of navigator.languages || [navigator.language || 'en']) {
+      const k = String(l).slice(0, 2).toLowerCase();
+      if (T[k]) return k;
+    }
+    return 'en';
+  }
+
+  function render(lang) {
+    const t = T[lang];
+    const code = codeFromHash(location.hash);
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
+    document.title = t.title + ' – Memoreo';
+    document.getElementById('title').textContent = t.title;
+    document.getElementById('lead').textContent = t.lead;
+    document.getElementById('codeLabel').textContent = t.code;
+    document.getElementById('code').textContent = code;
+    document.getElementById('copy').textContent = t.copy;
+    document.getElementById('missing').textContent = t.missing;
+    document.getElementById('steps').textContent = code ? t.steps : '';
+    document.getElementById('withCode').hidden = !code;
+    document.getElementById('missing').hidden = !!code;
+    document.getElementById('copy').onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(code);
+        document.getElementById('copy').textContent = t.copied;
+      } catch (_) {
+        // 写せない環境(古いブラウザ・アプリの中のブラウザ)では、コードの欄を長押しで写す
+      }
+    };
+    // 言語の切り替え(# の後のコードは残す)
+    const langs = document.getElementById('langs');
+    langs.textContent = '';
+    for (const k of Object.keys(T)) {
+      if (k === lang) continue;
+      const a = document.createElement('a');
+      a.href = '?lang=' + k + location.hash;
+      a.textContent = NAMES[k];
+      langs.appendChild(a);
+    }
+  }
+
+  render(pickLang());
+  window.addEventListener('hashchange', () => render(pickLang()));
+</script>
+</body>
+</html>

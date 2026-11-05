@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TSV38FPG86.com.yolca.memoreo"],
+        "components": [
+          { "/": "/g/*", "comment": "Memoreo ranking: group invite link (the invite code is after #)" }
+        ]
+      }
+    ]
+  }
+}
