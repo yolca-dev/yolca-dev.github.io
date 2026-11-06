@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idiom Shelf プライバシーポリシー / Privacy Policy</title>
+<style>
+  :root { --ink:#1a2238; --muted:#5b6478; --line:#e3e7ef; --accent:#3d5a99; --bg:#ffffff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); line-height:1.8; -webkit-text-size-adjust:100%; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+  nav { font-size:.9rem; margin-bottom:24px; }
+  section { border-top:2px solid var(--accent); padding-top:20px; margin-bottom:56px; }
+  h2 { font-size:1.4rem; margin:0 0 8px; }
+  h3 { font-size:1.05rem; margin:32px 0 8px; }
+  p { margin:0 0 12px; }
+  ul { margin:0 0 12px; padding-left:1.4em; }
+  li { margin-bottom:4px; }
+  table { border-collapse:collapse; width:100%; margin:0 0 16px; font-size:.9rem; }
+  th, td { border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+  th { background:#f4f6fb; }
+  a { color:var(--accent); word-break:break-all; }
+  footer { color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#ja">日本語</a> / <a href="#en">English</a> / <a href="#zh">中文</a> / <a href="#ru">Русский</a> / <a href="#es">Español</a> / <a href="#de">Deutsch</a> / <a href="#fr">Français</a></nav>
+<section id="ja" lang="ja">
+<h2>Idiom Shelf プライバシーポリシー</h2>
+<p>Yolca(以下「当方」)は、アプリ「Idiom Shelf」(以下「本アプリ」)での利用者の情報の取り扱いを、次のとおり定めます。</p>
+<h3>1. 基本の考え方</h3>
+<p>本アプリは、氏名・メールアドレス・電話番号などを入力する機能を持たず、アカウントの登録もありません。</p>
+<p>学習の記録は端末の中だけに保存されます。当方のサーバーに情報を送るのは、利用者が「世界ランキング」に参加した場合だけです(2 章)。</p>
+<p>本アプリは広告に Google の広告の仕組み(Google AdMob)を、購入の確認に RevenueCat, Inc. の仕組みを使います。これらの仕組みは当方のサーバーを通さずに、それぞれの会社と通信します(7・8 章)。</p>
+<h3>2. 世界ランキングで送る情報</h3>
+<p>チャレンジの「ランキング」から参加し、利用規約とこのポリシーに同意した場合に限り、次の情報を当方のサーバーに送ります。参加しなければ、何も送りません。</p>
+<table>
+<tr><th>送る情報</th><th>内容</th><th>使い道</th></tr>
+<tr><td>ランキングの番号</td><td>本アプリが端末の中で作る乱数の番号(名前や端末と結びつかない)</td><td>利用者の区別</td></tr>
+<tr><td>合言葉(トークン)</td><td>本アプリが端末の中で作る乱数。サーバーには元に戻せない形(ハッシュ)だけを保存</td><td>他人が利用者になりすまして点数を送るのを防ぐ</td></tr>
+<tr><td>表示名</td><td>利用者が付けた名前(付けなければ「Player 1234」の形の仮の名前)</td><td>ランキングの表示</td></tr>
+<tr><td>エンドレスの結果</td><td>1 回ごとの点数、遊んだテーマ(全テーマ混合か、どのテーマか)、難易度、復活したか、各問題の表現の番号・正誤・かかった時間・制限時間・ヒントを使ったか</td><td>点数を計算し直して不正を防ぐ・週の順位と段位・テーマごとの順位の計算</td></tr>
+<tr><td>表示言語</td><td>本アプリの表示言語</td><td>言語ごとの人数を数える・言語ごとのランキング(公開する場合)</td></tr>
+<tr><td>通報</td><td>利用者が他の利用者の表示名を通報した時の、相手のランキングの番号と理由</td><td>不適切な表示名への対応</td></tr>
+</table>
+<p>次の情報は当方のサーバーに送りません: 氏名・メールアドレス・電話番号、端末の識別子(広告 ID など)、端末の機種、位置情報、連絡先、写真、学習の記録(開いた表現・ブックマーク・復習の記録)、ステージの結果、広告で開けた表現、購入の情報。</p>
+<h3>3. 保存する場所と期間</h3>
+<ul>
+<li>送った情報は、Cloudflare, Inc. のサービス(Cloudflare Workers・D1)に保存し、そこで処理します。保存場所は日本の外になることがあります。</li>
+<li>保存する期間:</li>
+<ul>
+<li>表示名・週の点数・順位・段位・テーマごとの最高点の記録: 利用者が消すまで(5 項)</li>
+<li>1 回ごとの受付の記録(同じ結果を 2 度数えないためのもの。受付の番号・点数・受け付けた時刻): 14 日</li>
+<li>各問題の結果(表現の番号・正誤・かかった時間・制限時間・ヒント): 保存しません。受け取ったその場で点数を計算し直して確かめるのに使い、確かめた後は残しません。残すのは、そこから計算した点数・回数・難易度と表示言語ごとの点数・テーマごとの最高点・遊んだ時間の合計(不正な点数を防ぐため)だけです</li>
+<li>通信の記録(Cloudflare のログ): 要求ごとの記録は残しません。サーバーの誤りの記録(利用者の情報を含まない)だけを 7 日</li>
+</ul>
+<li>通信の際、接続元の IP アドレスは Cloudflare が通信のために扱います。当方は IP アドレスをランキングのデータとして保存しません(短い時間の送信の回数を数えるためにだけ使います)。</li>
+<li>当方は、法令に基づく場合を除き、ランキングで送った情報を第三者に売ったり渡したりしません。広告や追跡には使いません。</li>
+</ul>
+<h3>4. 公開される情報</h3>
+<p>ランキングには、表示名・週の点数・順位・段位・テーマごとの最高点と順位が、他の利用者に表示されます。ランキングの番号・合言葉・表示言語・各問題の結果は表示されません。</p>
+<h3>5. 情報を消すには</h3>
+<ul>
+<li>本アプリの設定 →「ランキング」→「ランキングのデータを消す」で、サーバーにある表示名・点数・順位・段位の記録をすぐに消せます。</li>
+<li>本アプリを削除した後などで消せない場合は、設定に出る「ランキングの番号」を添えて <a href="mailto:contact@yolca.dev">contact@yolca.dev</a> までご連絡ください。確認のうえ消します。</li>
+<li>不適切な表示名は、通報や当方の確認により、仮の名前に戻すことがあります(利用規約)。</li>
+</ul>
+<h3>6. 端末の中だけで扱う情報</h3>
+<ul>
+<li>開いた表現・ブックマーク・復習の記録・学習した日・読みかけの位置・各種の設定・自己ベストは、端末の中だけに保存されます。</li>
+<li>背景の写真: 利用者が選んだ写真 1 枚を、本アプリの中に写して背景に使います。写真を選ぶ画面は OS のもので、本アプリは選ばれた 1 枚だけを受け取ります。写真を当方に送ることはありません。</li>
+<li>チャレンジの結果の画像: 「共有」を押すと、結果の画像を作り、OS の共有の画面に渡します。「画像を保存」を選んだ場合だけ、写真に保存します(その時に写真への追加の許可を求めます)。</li>
+<li>読み上げ: 端末(OS)の音声合成の機能を使う場合、読み上げる文は端末の音声合成の機能に渡されます。英語の表現の音声は、本アプリに入っている音声を鳴らします。</li>
+<li>広告で開けた表現: どの表現を開けたかと、その日に広告で開けたテーマは、端末の中だけに保存します。</li>
+<li>バックアップ: 「ファイルに書き出す」で、記録(広告で開けた表現を含む)を利用者が選んだ保存先に保存します。当方がファイルを受け取ることはありません。ランキングの合言葉はバックアップに入れません。</li>
+</ul>
+<h3>7. 広告(Google AdMob)</h3>
+<ul>
+<li>本アプリは、テーマを購入していない利用者が次のどちらかを選んだ時に、Google LLC の広告の仕組み(Google AdMob)で動画の広告を表示します: チャレンジの Game Over の後に続けること、まだ読めない表現を広告を見て開けること。ほかの場所には広告を出しません。全テーマを購入した利用者には広告を表示しません。</li>
+<li>表示するのは、利用者の興味や過去の行動にもとづかない広告(パーソナライズしない広告)だけです。</li>
+<li>iPhone では、最初の起動の後に「トラッキングの許可」を求めます。許可した場合、広告の仕組みが広告用の識別子(IDFA)を、表示の回数の上限・効果の集計・不正の防止に使うことがあります。許可しなくても、本アプリの機能はすべて使えます。選んだ内容は、iPhone の設定でいつでも変えられます。許可した場合も、パーソナライズした広告は表示しません。</li>
+<li>広告の仕組みは、広告の表示・表示の回数の上限・効果の集計・不正の防止・分析のために、次の情報を Google に送ることがあります: IP アドレス(おおよその地域の推定に使われることがあります)、端末の識別子(Android の広告 ID・アプリセット ID、iPhone のアプリ単位の識別子など)、広告の表示と操作の情報(見た広告・タップ・動画の再生)、アプリの起動や操作の情報、不具合と性能の情報(クラッシュの記録・起動の時間など)。広告を見ない利用者の端末でも、起動の時に、同意の確認と広告の仕組みの準備のために Google と通信します。</li>
+<li>欧州経済領域・英国・スイスなどの利用者には、Google の同意の画面を表示します。選んだ内容は、本アプリの設定 →「プライバシーの設定」からいつでも変えられます(この行は同意の画面が必要な地域でだけ表示されます)。</li>
+<li>Google による情報の扱いは、Google のプライバシーポリシー(<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>)と、Google のサービスを使うアプリの情報を Google がどう使うかの説明(<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>)をご覧ください。</li>
+</ul>
+<h3>8. 購入(全テーマ)</h3>
+<ul>
+<li>「全テーマ」の購入の支払いは、Apple(App Store)が扱います。当方は支払いの情報(カードの番号など)を受け取りません。</li>
+<li>購入の確認と「購入を復元」のために、RevenueCat, Inc. の仕組みを使います。この仕組みは、本アプリが端末の中で作る匿名の番号(RevenueCat の利用者の番号)と、購入の記録(商品・購入の日時・取引の番号・国または地域・値段)を RevenueCat に送ります。当方は RevenueCat の管理画面で、購入の件数などの集計を見ることがあります。ランキングの番号とは結びつけません。</li>
+<li>RevenueCat による情報の扱いは、RevenueCat のプライバシーポリシー(<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>)をご覧ください。</li>
+</ul>
+<h3>9. お子さまの利用</h3>
+<p>本アプリの年齢区分は 13 歳以上です。世界ランキングでは表示名が他の利用者に表示されるため、実名や個人を特定できる名前を使わないでください。</p>
+<h3>10. 改定</h3>
+<p>このポリシーを改定するときは、このページでお知らせします。</p>
+<h3>11. お問い合わせ</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>制定日: 2026年11月6日</p>
+</section>
+<section id="en" lang="en">
+<h2>Idiom Shelf Privacy Policy</h2>
+<p>Yolca (&quot;we&quot;) sets out below how user information is handled in the app &quot;Idiom Shelf&quot; (the &quot;App&quot;).</p>
+<h3>1. Basic Approach</h3>
+<p>The App has no feature for entering your name, email address, phone number, or the like, and has no account registration.</p>
+<p>Your learning records are stored only on your device. Information is sent to our server only if you take part in the &quot;global leaderboard&quot; (section 2).</p>
+<p>The App uses Google&#x27;s advertising service (Google AdMob) for ads and the service of RevenueCat, Inc. to confirm purchases. These services communicate with the respective companies without going through our server (sections 7 and 8).</p>
+<h3>2. Information Sent for the Global Leaderboard</h3>
+<p>Only if you take part from the Challenge &quot;Leaderboard&quot; and agree to the Terms of Use and this Policy, the following information is sent to our server. If you do not take part, nothing is sent.</p>
+<table>
+<tr><th>Information sent</th><th>Details</th><th>Purpose</th></tr>
+<tr><td>Leaderboard ID</td><td>A random number the App generates on your device (not linked to your name or device)</td><td>Distinguishing users</td></tr>
+<tr><td>Secret code (token)</td><td>A random number the App generates on your device. The server stores only a form that cannot be reversed (a hash)</td><td>Preventing others from impersonating you and sending scores</td></tr>
+<tr><td>Display name</td><td>The name you set (if you do not set one, a temporary name in the form &quot;Player 1234&quot;)</td><td>Display on the leaderboard</td></tr>
+<tr><td>Endless results</td><td>For each play: score, the theme played (All themes or which theme), difficulty, whether a revive was used, and for each question the expression number, whether the answer was correct, time taken, time limit, and whether a hint was used</td><td>Recalculating scores to prevent cheating; calculating weekly ranks and tiers, and ranks for each theme</td></tr>
+<tr><td>Display language</td><td>The App&#x27;s display language</td><td>Counting users per language; per-language leaderboards (if published)</td></tr>
+<tr><td>Reports</td><td>When you report another user&#x27;s display name, that user&#x27;s leaderboard ID and the reason</td><td>Handling inappropriate display names</td></tr>
+</table>
+<p>The following information is not sent to our server: name, email address, phone number, device identifiers (such as advertising ID), device model, location, contacts, photos, learning records (opened expressions, saved expressions, review records), results of stages, expressions unlocked with ads, and purchase information.</p>
+<h3>3. Where and How Long Information Is Stored</h3>
+<ul>
+<li>Sent information is stored and processed on services of Cloudflare, Inc. (Cloudflare Workers, D1). The storage location may be outside Japan.</li>
+<li>Retention periods:</li>
+<ul>
+<li>Records of display name, weekly score, rank, tier, and best score for each theme: until you delete them (see section 5)</li>
+<li>Records of each receipt (used to avoid counting the same result twice; the receipt number, score, and time of receipt): 14 days</li>
+<li>Results of individual questions (expression number, whether the answer was correct, time taken, time limit, hint): not stored. They are used on the spot when received to recalculate and verify the score, and are not kept after verification. Only the score, number of plays, and difficulty calculated from them, the best score for each theme, and the totals of scores and play time for each display language, are kept (to prevent fraudulent scores)</li>
+<li>Communication logs (Cloudflare logs): we do not keep a record of each request; only server error records (which contain no user information) are kept for 7 days</li>
+</ul>
+<li>During communication, the source IP address is handled by Cloudflare for the purpose of the communication. We do not store IP addresses as leaderboard data (we use them only to count the number of submissions within a short period).</li>
+<li>Except where required by law, we do not sell or hand the information sent for the leaderboard to third parties. We do not use it for advertising or tracking.</li>
+</ul>
+<h3>4. Information Made Public</h3>
+<p>On the leaderboard, display names, weekly scores, ranks, tiers, and the best score and rank for each theme are shown to other users. Leaderboard IDs, secret codes, display languages, and the results of individual questions are not shown.</p>
+<h3>5. How to Delete Your Information</h3>
+<ul>
+<li>In the App&#x27;s Settings → &quot;Leaderboard&quot; → &quot;Delete Leaderboard Data&quot;, you can immediately delete the records of display name, score, rank, and tier held on the server.</li>
+<li>If you cannot delete them, for example after uninstalling the App, please contact <a href="mailto:contact@yolca.dev">contact@yolca.dev</a> and include the &quot;Leaderboard ID&quot; shown in Settings. We will verify and delete them.</li>
+<li>An inappropriate display name may be reverted to a temporary name following a report or our review (Terms of Use).</li>
+</ul>
+<h3>6. Information Handled Only on Your Device</h3>
+<ul>
+<li>Opened expressions, saved expressions, review records, study days, reading position, various settings, and personal bests are stored only on your device.</li>
+<li>Background photo: One photo you choose is copied into the App and used as the background. The photo selection screen belongs to the OS, and the App receives only the one photo you choose. The photo is never sent to us.</li>
+<li>Challenge result image: When you tap &quot;Share&quot;, an image of the result is created and handed to the OS share screen. It is saved to Photos only if you choose &quot;Save Image&quot; (at that time, permission to add to Photos is requested).</li>
+<li>Read-aloud: When the device&#x27;s (OS&#x27;s) speech synthesis is used, the text to be read aloud is passed to the device&#x27;s speech synthesis. Audio for English expressions plays the audio included in the App.</li>
+<li>Expressions unlocked with ads: which expressions you unlocked, and the theme you unlocked with ads that day, are stored only on your device.</li>
+<li>Backup: With &quot;Save to file&quot;, your records (including expressions unlocked with ads) are saved to a location you choose. We never receive the file. The leaderboard secret code is not included in the backup.</li>
+</ul>
+<h3>7. Advertising (Google AdMob)</h3>
+<ul>
+<li>When a user who has not purchased a theme chooses either of the following, the App shows a video ad using the advertising service of Google LLC (Google AdMob): continuing after Game Over in the Challenge, or unlocking expressions that cannot yet be read by watching an ad. No ads are shown anywhere else. No ads are shown to users who have purchased &quot;All Themes&quot;.</li>
+<li>Only ads that are not based on the user&#x27;s interests or past behavior (non-personalized ads) are shown.</li>
+<li>On iPhone, the App requests &quot;tracking permission&quot; after the first launch. If you allow it, the advertising service may use the advertising identifier (IDFA) for limiting the number of times ads are shown, measuring effectiveness, and fraud prevention. All features of the App can be used even if you do not allow it. Your choice can be changed at any time in the iPhone&#x27;s Settings. Even if you allow it, personalized ads are not shown.</li>
+<li>For ad display, limiting the number of times ads are shown, measuring effectiveness, fraud prevention, and analytics, the advertising service may send the following information to Google: IP address (which may be used to estimate the approximate region), device identifiers (Android advertising ID and app set ID, an app-level identifier on iPhone, etc.), information on ad displays and interactions (ads viewed, taps, video plays), information on app launches and operations, and information on bugs and performance (crash records, launch time, etc.). Even on the device of a user who does not watch ads, the App communicates with Google at launch to check consent and prepare the advertising service.</li>
+<li>Users in the European Economic Area, the United Kingdom, Switzerland, and similar regions are shown Google&#x27;s consent screen. The choice made can be changed at any time in the App&#x27;s Settings → &quot;Privacy Options&quot; (this row is shown only in regions where a consent screen is required).</li>
+<li>For how Google handles information, please see Google&#x27;s Privacy Policy (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) and Google&#x27;s explanation of how Google uses information from apps that use its services (<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>).</li>
+</ul>
+<h3>8. Purchase (All Themes)</h3>
+<ul>
+<li>Payment for the purchase of &quot;All Themes&quot; is handled by Apple (App Store). We do not receive payment information (such as card numbers).</li>
+<li>To confirm purchases and for &quot;Restore Purchases&quot;, we use the service of RevenueCat, Inc. This service sends RevenueCat an anonymous ID that the App generates on your device (the RevenueCat user ID) and a purchase record (product, date and time of purchase, transaction ID, country or region, price). We may view aggregate figures such as the number of purchases in RevenueCat&#x27;s dashboard. It is not linked to the leaderboard ID.</li>
+<li>For how RevenueCat handles information, please see RevenueCat&#x27;s Privacy Policy (<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>).</li>
+</ul>
+<h3>9. Use by Children</h3>
+<p>The App&#x27;s age rating is 13 and over. Because display names are shown to other users on the global leaderboard, please do not use a real name or any name that can identify an individual.</p>
+<h3>10. Revisions</h3>
+<p>When we revise this Policy, we will announce it on this page.</p>
+<h3>11. Contact</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>Effective date: November 6, 2026</p>
+</section>
+<section id="zh" lang="zh">
+<h2>Idiom Shelf 隐私政策</h2>
+<p>Yolca(以下简称“我方”)对用户信息在应用“Idiom Shelf”(以下简称“本应用”)中的处理方式规定如下。</p>
+<h3>1. 基本原则</h3>
+<p>本应用没有输入姓名、电子邮箱、电话号码等信息的功能,也没有账号注册。</p>
+<p>学习记录仅保存在设备中。只有当用户参与“全球排行榜”时,才会向我方服务器发送信息(第 2 条)。</p>
+<p>本应用的广告使用 Google 的广告服务(Google AdMob),购买的确认使用 RevenueCat, Inc. 的服务。这些服务不经过我方服务器,直接与各自的公司通信(第 7、8 条)。</p>
+<h3>2. 全球排行榜发送的信息</h3>
+<p>仅当用户从挑战的“排行榜”参与,并同意使用条款和本政策时,才会向我方服务器发送以下信息。不参与则不会发送任何信息。</p>
+<table>
+<tr><th>发送的信息</th><th>内容</th><th>用途</th></tr>
+<tr><td>排行榜编号</td><td>本应用在设备中生成的随机数编号(与姓名和设备无关联)</td><td>区分用户</td></tr>
+<tr><td>密钥(令牌)</td><td>本应用在设备中生成的随机数。服务器仅保存无法还原的形式(哈希值)</td><td>防止他人冒充用户发送分数</td></tr>
+<tr><td>昵称</td><td>用户设置的名称(未设置则为“Player 1234”形式的临时名称)</td><td>排行榜的显示</td></tr>
+<tr><td>无尽的结果</td><td>每次的分数、所玩的主题(全部主题还是某个主题)、难度、是否复活,以及每道题的表达编号、是否答对、所用时间、时间限制、是否使用了提示</td><td>重新计算分数以防止作弊;计算每周名次和段位、各主题的名次</td></tr>
+<tr><td>显示语言</td><td>本应用的显示语言</td><td>统计各语言的用户数;各语言的排行榜(如公开)</td></tr>
+<tr><td>举报</td><td>用户举报其他用户的昵称时,对方的排行榜编号和理由</td><td>处理不当的昵称</td></tr>
+</table>
+<p>不会向我方服务器发送以下信息:姓名、电子邮箱、电话号码、设备标识符(广告 ID 等)、设备型号、位置信息、通讯录、照片、学习记录(打开过的表达、已收藏的表达、复习记录)、关卡的结果、通过广告解锁的表达、购买信息。</p>
+<h3>3. 保存的位置与期限</h3>
+<ul>
+<li>发送的信息保存并处理于 Cloudflare, Inc. 的服务(Cloudflare Workers、D1)。保存位置可能在日本境外。</li>
+<li>保存期限:</li>
+<ul>
+<li>昵称、每周分数、名次、段位、各主题最高分的记录:直到用户删除为止(见第 5 条)</li>
+<li>每次受理的记录(用于避免同一结果被计算两次。受理编号、分数、受理时间):14 天</li>
+<li>每道题的结果(表达编号、是否答对、所用时间、时间限制、提示):不保存。仅在收到时用于重新计算分数并核实,核实后不保留。保留的仅有据此计算出的分数、次数、难度、各主题的最高分,以及按显示语言统计的分数和游玩时间的合计(为防止不正当的分数)</li>
+<li>通信记录(Cloudflare 的日志):不保留每次请求的记录;仅将服务器错误记录(不含用户信息)保留 7 天</li>
+</ul>
+<li>通信时,来源 IP 地址由 Cloudflare 为通信目的而处理。我方不将 IP 地址作为排行榜数据保存(仅用于统计短时间内的发送次数)。</li>
+<li>除依据法律法规的情形外,我方不会向第三方出售或提供通过排行榜发送的信息。不用于广告或追踪。</li>
+</ul>
+<h3>4. 公开的信息</h3>
+<p>排行榜上会向其他用户显示昵称、每周分数、名次、段位,以及各主题的最高分和名次。排行榜编号、密钥、显示语言以及每道题的结果不会显示。</p>
+<h3>5. 如何删除信息</h3>
+<ul>
+<li>在本应用的设置 →“排行榜”→“删除排行榜数据”中,可以立即删除服务器上的昵称、分数、名次和段位的记录。</li>
+<li>如在删除本应用之后等情况下无法删除,请附上设置中显示的“排行榜编号”,联系 <a href="mailto:contact@yolca.dev">contact@yolca.dev</a>。我方确认后予以删除。</li>
+<li>不当的昵称可能因举报或我方的确认而被恢复为临时名称(使用条款)。</li>
+</ul>
+<h3>6. 仅在设备中处理的信息</h3>
+<ul>
+<li>打开过的表达、已收藏的表达、复习记录、学习日期、阅读到的位置、各项设置和个人最佳成绩,仅保存在设备中。</li>
+<li>背景照片:将用户选择的 1 张照片复制到本应用中用作背景。选择照片的界面由操作系统提供,本应用只接收被选中的 1 张照片。不会将照片发送给我方。</li>
+<li>挑战结果的图片:点击“分享”后,会生成结果图片并交给操作系统的分享界面。仅当选择“存储图像”时才会保存到照片(此时会请求添加到照片的额外权限)。</li>
+<li>朗读:使用设备(操作系统)的语音合成功能时,朗读的文本会交给设备的语音合成功能。英语表达的语音播放的是本应用内置的音频。</li>
+<li>通过广告解锁的表达:解锁了哪些表达,以及当天通过广告解锁的主题,仅保存在设备中。</li>
+<li>备份:通过“导出为文件”,将记录(包括通过广告解锁的表达)保存到用户选择的保存位置。我方不会收到该文件。排行榜的密钥不包含在备份中。</li>
+</ul>
+<h3>7. 广告(Google AdMob)</h3>
+<ul>
+<li>未购买主题的用户选择以下任一操作时,本应用会通过 Google LLC 的广告服务(Google AdMob)展示视频广告:在挑战中游戏结束后继续游戏、观看广告以解锁尚不能阅读的表达。其他位置不展示广告。已购买“全部主题”的用户不会看到广告。</li>
+<li>仅展示不基于用户兴趣或过往行为的广告(非个性化广告)。</li>
+<li>在 iPhone 上,首次启动后本应用会请求“跟踪授权”。如果允许,广告服务可能会将广告标识符(IDFA)用于限制展示次数、统计效果和防止欺诈。即使不允许,也可以使用本应用的全部功能。所做的选择可随时在 iPhone 的设置中更改。即使允许,也不会展示个性化广告。</li>
+<li>广告服务可能为了展示广告、限制展示次数、统计效果、防止欺诈和分析,向 Google 发送以下信息:IP 地址(可能用于推测大致地区)、设备标识符(Android 的广告 ID、应用集 ID,iPhone 的应用级标识符等)、广告展示与操作的信息(观看的广告、点击、视频播放)、应用启动与操作的信息、故障与性能的信息(崩溃记录、启动时间等)。即使是不观看广告的用户的设备,在启动时也会为确认同意和准备广告服务而与 Google 通信。</li>
+<li>对欧洲经济区、英国、瑞士等地区的用户,会显示 Google 的同意界面。所选内容可随时在本应用的设置 →“隐私选项”中更改(该行仅在需要同意界面的地区才会显示)。</li>
+<li>关于 Google 如何处理信息,请参阅 Google 的隐私政策(<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>),以及 Google 对使用其服务的应用中的信息如何被 Google 使用的说明(<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>)。</li>
+</ul>
+<h3>8. 购买(全部主题)</h3>
+<ul>
+<li>“全部主题”的购买付款由 Apple(App Store)处理。我方不会收到付款信息(如银行卡号)。</li>
+<li>为了确认购买以及“恢复购买”,使用 RevenueCat, Inc. 的服务。该服务会将本应用在设备中生成的匿名编号(RevenueCat 的用户编号)和购买记录(商品、购买的日期和时间、交易编号、国家或地区、价格)发送给 RevenueCat。我方可能在 RevenueCat 的管理后台查看购买数量等汇总信息。不会与排行榜编号关联。</li>
+<li>关于 RevenueCat 如何处理信息,请参阅 RevenueCat 的隐私政策(<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>)。</li>
+</ul>
+<h3>9. 未成年人的使用</h3>
+<p>本应用的年龄分级为 13 岁以上。由于在全球排行榜上昵称会显示给其他用户,请勿使用真实姓名或可识别个人身份的名称。</p>
+<h3>10. 修订</h3>
+<p>修订本政策时,将在本页面公布。</p>
+<h3>11. 联系方式</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>制定日期: 2026年11月6日</p>
+</section>
+<section id="ru" lang="ru">
+<h2>Политика конфиденциальности Idiom Shelf</h2>
+<p>Yolca (далее — «мы») определяет порядок обработки информации о пользователях в приложении «Idiom Shelf» (далее — «Приложение») следующим образом.</p>
+<h3>1. Основные принципы</h3>
+<p>В Приложении нет функций для ввода имени, адреса электронной почты, номера телефона и т. п., а также нет регистрации учётной записи.</p>
+<p>Записи об обучении хранятся только на устройстве. Информация отправляется на наш сервер только в том случае, если пользователь участвует в «мировом рейтинге» (раздел 2).</p>
+<p>Для рекламы Приложение использует рекламный сервис Google (Google AdMob), а для подтверждения покупок — сервис компании RevenueCat, Inc. Эти сервисы обмениваются данными с соответствующими компаниями, минуя наш сервер (разделы 7 и 8).</p>
+<h3>2. Информация, отправляемая для мирового рейтинга</h3>
+<p>Только если пользователь участвует через раздел «Рейтинг» в «Испытании» и принимает Условия использования и настоящую Политику, на наш сервер отправляется следующая информация. Если пользователь не участвует, ничего не отправляется.</p>
+<table>
+<tr><th>Отправляемая информация</th><th>Содержание</th><th>Назначение</th></tr>
+<tr><td>ID в рейтинге</td><td>Случайный номер, который Приложение создаёт на устройстве (не связан с именем или устройством)</td><td>Различение пользователей</td></tr>
+<tr><td>Секретный код (токен)</td><td>Случайное число, которое Приложение создаёт на устройстве. На сервере хранится только необратимая форма (хеш)</td><td>Защита от отправки очков другими лицами от имени пользователя</td></tr>
+<tr><td>Отображаемое имя</td><td>Имя, заданное пользователем (если не задано — временное имя вида «Player 1234»)</td><td>Отображение в рейтинге</td></tr>
+<tr><td>Результаты режима «Бесконечный»</td><td>За каждую игру: очки, сыгранная тема («Все темы» или конкретная тема), сложность, было ли возрождение, а по каждому вопросу — номер выражения, верность ответа, затраченное время, ограничение по времени, использовалась ли подсказка</td><td>Пересчёт очков для предотвращения мошенничества; расчёт недельных мест и уровней, а также мест по темам</td></tr>
+<tr><td>Язык интерфейса</td><td>Язык интерфейса Приложения</td><td>Подсчёт числа пользователей по языкам; рейтинги по языкам (если будут опубликованы)</td></tr>
+<tr><td>Жалобы</td><td>Когда пользователь жалуется на отображаемое имя другого пользователя — ID этого пользователя в рейтинге и причина</td><td>Работа с неприемлемыми отображаемыми именами</td></tr>
+</table>
+<p>Следующая информация не отправляется на наш сервер: имя, адрес электронной почты, номер телефона, идентификаторы устройства (например, рекламный ID), модель устройства, местоположение, контакты, фотографии, записи об обучении (открытые выражения, сохранённые выражения, записи о повторении), результаты этапов, выражения, открытые с помощью рекламы, и информация о покупках.</p>
+<h3>3. Место и срок хранения</h3>
+<ul>
+<li>Отправленная информация хранится и обрабатывается в сервисах Cloudflare, Inc. (Cloudflare Workers, D1). Место хранения может находиться за пределами Японии.</li>
+<li>Сроки хранения:</li>
+<ul>
+<li>записи об отображаемом имени, недельных очках, местах, уровнях и лучших очках по темам: пока пользователь не удалит их (см. раздел 5);</li>
+<li>записи о каждом приёме результата (чтобы не засчитать один и тот же результат дважды; номер приёма, очки, время приёма): 14 дней;</li>
+<li>результаты по отдельным вопросам (номер выражения, верность ответа, затраченное время, ограничение по времени, использовалась ли подсказка): не сохраняются. Они используются сразу при получении, чтобы пересчитать и проверить очки, и после проверки не хранятся. Сохраняются только рассчитанные на их основе очки, количество игр и сложность, лучшие очки по темам, а также суммы очков и игрового времени по языкам интерфейса (для предотвращения недостоверных очков);</li>
+<li>журналы соединений (журналы Cloudflare): запись каждого запроса не сохраняется; хранятся только записи об ошибках сервера (без данных пользователей) в течение 7 дней.</li>
+</ul>
+<li>При соединении IP-адрес источника обрабатывается Cloudflare для целей соединения. Мы не сохраняем IP-адреса как данные рейтинга (используем их только для подсчёта числа отправок за короткий промежуток времени).</li>
+<li>За исключением случаев, предусмотренных законом, мы не продаём и не передаём третьим лицам информацию, отправленную для рейтинга. Мы не используем её для рекламы или отслеживания.</li>
+</ul>
+<h3>4. Публикуемая информация</h3>
+<p>В рейтинге другим пользователям показываются отображаемые имена, недельные очки, места, уровни, а также лучшие очки по темам и места по темам. ID в рейтинге, секретные коды, язык интерфейса и результаты по отдельным вопросам не показываются.</p>
+<h3>5. Как удалить информацию</h3>
+<ul>
+<li>В Настройках Приложения → «Рейтинг» → «Удалить данные рейтинга» можно сразу удалить хранящиеся на сервере записи об отображаемом имени, очках, местах и уровнях.</li>
+<li>Если удалить их не удаётся, например после удаления Приложения, свяжитесь с нами по адресу <a href="mailto:contact@yolca.dev">contact@yolca.dev</a>, указав «ID в рейтинге», который отображается в Настройках. Мы проверим и удалим данные.</li>
+<li>Неприемлемое отображаемое имя может быть заменено на временное имя по жалобе или по итогам нашей проверки (Условия использования).</li>
+</ul>
+<h3>6. Информация, обрабатываемая только на устройстве</h3>
+<ul>
+<li>Открытые выражения, сохранённые выражения, записи о повторении, дни обучения, место, где вы остановились при чтении, различные настройки и личные рекорды хранятся только на устройстве.</li>
+<li>Фоновая фотография: одна выбранная пользователем фотография копируется в Приложение и используется в качестве фона. Экран выбора фотографий принадлежит ОС, и Приложение получает только одну выбранную фотографию. Фотография нам не отправляется.</li>
+<li>Изображение результата «Испытания»: при нажатии «Поделиться» создаётся изображение результата и передаётся в экран «Поделиться» ОС. В «Фото» оно сохраняется только в том случае, если выбрать «Сохранить изображение» (в этот момент запрашивается дополнительное разрешение на добавление в «Фото»).</li>
+<li>Озвучивание: при использовании функции синтеза речи устройства (ОС) озвучиваемый текст передаётся этой функции устройства. Для английских выражений воспроизводится звук, входящий в состав Приложения.</li>
+<li>Выражения, открытые с помощью рекламы: какие выражения открыты и какая тема была открыта с помощью рекламы в этот день — хранится только на устройстве.</li>
+<li>Резервная копия: при выборе «Сохранить в файл» записи (включая выражения, открытые с помощью рекламы) сохраняются в выбранное пользователем место. Мы не получаем этот файл. Секретный код для рейтинга в резервную копию не включается.</li>
+</ul>
+<h3>7. Реклама (Google AdMob)</h3>
+<ul>
+<li>Когда пользователь, не купивший темы, выбирает одно из следующего, Приложение показывает видеорекламу с помощью рекламного сервиса Google LLC (Google AdMob): продолжить игру после окончания игры в «Испытании» либо открыть пока недоступные для чтения выражения, посмотрев рекламу. В других местах реклама не показывается. Пользователям, купившим «Все темы», реклама не показывается.</li>
+<li>Показывается только реклама, не основанная на интересах пользователя и его прошлых действиях (неперсонализированная реклама).</li>
+<li>На iPhone после первого запуска Приложение запрашивает «разрешение на отслеживание». Если пользователь его даёт, рекламный сервис может использовать рекламный идентификатор (IDFA) для ограничения числа показов, подсчёта эффективности и предотвращения мошенничества. Если разрешение не давать, все функции Приложения остаются доступными. Сделанный выбор можно в любой момент изменить в Настройках iPhone. Даже если разрешение дано, персонализированная реклама не показывается.</li>
+<li>Для показа рекламы, ограничения числа показов, подсчёта эффективности, предотвращения мошенничества и анализа рекламный сервис может отправлять Google следующую информацию: IP-адрес (может использоваться для определения примерного региона), идентификаторы устройства (рекламный ID и идентификатор набора приложений на Android, идентификатор на уровне приложения на iPhone и т. п.), информация о показах рекламы и действиях с ней (просмотренная реклама, нажатия, воспроизведение видео), информация о запуске приложения и действиях в нём, информация о сбоях и производительности (записи о сбоях, время запуска и т. п.). Даже на устройстве пользователя, который не смотрит рекламу, при запуске Приложение обменивается данными с Google, чтобы проверить согласие и подготовить рекламный сервис.</li>
+<li>Пользователям в Европейской экономической зоне, Великобритании, Швейцарии и других регионах показывается экран согласия Google. Сделанный выбор можно в любой момент изменить в Настройках Приложения → «Настройки конфиденциальности» (эта строка показывается только в регионах, где нужен экран согласия).</li>
+<li>О том, как Google обрабатывает информацию, см. политику конфиденциальности Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) и описание того, как Google использует информацию из приложений, использующих его сервисы (<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>).</li>
+</ul>
+<h3>8. Покупка (Все темы)</h3>
+<ul>
+<li>Оплату покупки «Все темы» обрабатывает Apple (App Store). Мы не получаем платёжную информацию (например, номера карт).</li>
+<li>Для подтверждения покупки и функции «Восстановить покупки» мы используем сервис RevenueCat, Inc. Этот сервис отправляет в RevenueCat анонимный номер, который Приложение создаёт на устройстве (идентификатор пользователя RevenueCat), и запись о покупке (товар, дата и время покупки, номер транзакции, страна или регион, цена). Мы можем просматривать в панели управления RevenueCat сводные данные, например количество покупок. Эти данные не связываются с ID в рейтинге.</li>
+<li>О том, как RevenueCat обрабатывает информацию, см. политику конфиденциальности RevenueCat (<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>).</li>
+</ul>
+<h3>9. Использование детьми</h3>
+<p>Возрастная категория Приложения — от 13 лет. Поскольку в мировом рейтинге отображаемые имена показываются другим пользователям, не используйте настоящее имя или имя, позволяющее идентифицировать личность.</p>
+<h3>10. Изменения</h3>
+<p>При изменении настоящей Политики мы сообщим об этом на этой странице.</p>
+<h3>11. Контакты</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>Дата вступления в силу: 6 ноября 2026 г.</p>
+</section>
+<section id="es" lang="es">
+<h2>Política de privacidad de Idiom Shelf</h2>
+<p>Yolca (en adelante, «nosotros») establece a continuación el tratamiento de la información de los usuarios en la aplicación «Idiom Shelf» (en adelante, la «Aplicación»).</p>
+<h3>1. Principio básico</h3>
+<p>La Aplicación no tiene ninguna función para introducir nombre, correo electrónico, número de teléfono ni datos similares, y no existe registro de cuenta.</p>
+<p>Los registros de aprendizaje se guardan únicamente en el dispositivo. Solo se envía información a nuestro servidor si el usuario participa en la «clasificación mundial» (apartado 2).</p>
+<p>Para la publicidad, la Aplicación utiliza el servicio publicitario de Google (Google AdMob) y, para confirmar las compras, el servicio de RevenueCat, Inc. Estos servicios se comunican con cada una de las empresas sin pasar por nuestro servidor (apartados 7 y 8).</p>
+<h3>2. Información enviada para la clasificación mundial</h3>
+<p>Únicamente si el usuario participa desde «Clasificación» en «Desafío» y acepta los Términos de uso y esta Política, se envía la siguiente información a nuestro servidor. Si no participa, no se envía nada.</p>
+<table>
+<tr><th>Información enviada</th><th>Contenido</th><th>Finalidad</th></tr>
+<tr><td>ID de clasificación</td><td>Un número aleatorio que la Aplicación genera en el dispositivo (no vinculado al nombre ni al dispositivo)</td><td>Distinguir a los usuarios</td></tr>
+<tr><td>Clave secreta (token)</td><td>Un número aleatorio que la Aplicación genera en el dispositivo. El servidor guarda únicamente una forma irreversible (hash)</td><td>Evitar que otras personas se hagan pasar por el usuario y envíen puntuaciones</td></tr>
+<tr><td>Nombre visible</td><td>El nombre que puso el usuario (si no puso ninguno, un nombre provisional con el formato «Player 1234»)</td><td>Mostrarlo en la clasificación</td></tr>
+<tr><td>Resultados de «Sin fin»</td><td>En cada partida: puntuación, tema jugado («Todos los temas» o un tema concreto), dificultad, si se revivió la partida y, por cada pregunta, el número de la expresión, si la respuesta fue correcta, el tiempo empleado, el tiempo límite y si se usó una pista</td><td>Recalcular las puntuaciones para evitar el fraude; calcular los puestos y los niveles semanales y los puestos por tema</td></tr>
+<tr><td>Idioma de visualización</td><td>El idioma en que se muestra la Aplicación</td><td>Contar los usuarios por idioma; clasificaciones por idioma (si se publican)</td></tr>
+<tr><td>Denuncias</td><td>Cuando el usuario denuncia el nombre visible de otro usuario, el ID de clasificación de ese usuario y el motivo</td><td>Atender los nombres visibles inapropiados</td></tr>
+</table>
+<p>No se envía a nuestro servidor la siguiente información: nombre, correo electrónico, número de teléfono, identificadores del dispositivo (como el ID de publicidad), modelo del dispositivo, ubicación, contactos, fotos, registros de aprendizaje (expresiones abiertas, expresiones guardadas, registros de repaso), resultados de las etapas, expresiones desbloqueadas con anuncios ni información de compras.</p>
+<h3>3. Lugar y plazo de conservación</h3>
+<ul>
+<li>La información enviada se almacena y procesa en servicios de Cloudflare, Inc. (Cloudflare Workers, D1). El lugar de almacenamiento puede estar fuera de Japón.</li>
+<li>Plazos de conservación:</li>
+<ul>
+<li>Registros de nombre visible, puntuación semanal, puesto, nivel y mejor puntuación por tema: hasta que el usuario los elimine (véase el apartado 5)</li>
+<li>Registros de cada recepción (para no contar dos veces el mismo resultado; número de recepción, puntuación y hora de recepción): 14 días</li>
+<li>Resultados de cada pregunta (número de la expresión, si la respuesta fue correcta, tiempo empleado, tiempo límite, pista): no se conservan. Se usan en el momento de recibirlos para recalcular y comprobar la puntuación, y una vez comprobada no se guardan. Solo se conservan la puntuación, el número de partidas y la dificultad calculados a partir de ellos, la mejor puntuación por tema y los totales de puntuación y de tiempo de juego por idioma de visualización (para evitar puntuaciones fraudulentas)</li>
+<li>Registros de comunicaciones (registros de Cloudflare): no conservamos un registro de cada solicitud; solo conservamos durante 7 días los registros de errores del servidor (que no contienen información de los usuarios)</li>
+</ul>
+<li>Durante la comunicación, Cloudflare trata la dirección IP de origen con fines de comunicación. No guardamos las direcciones IP como datos de la clasificación (solo las usamos para contar el número de envíos en un breve espacio de tiempo).</li>
+<li>Salvo en los casos previstos por la ley, no vendemos ni entregamos a terceros la información enviada para la clasificación. No la usamos para publicidad ni para seguimiento.</li>
+</ul>
+<h3>4. Información que se hace pública</h3>
+<p>En la clasificación se muestran a otros usuarios los nombres visibles, las puntuaciones semanales, los puestos, los niveles, y la mejor puntuación y el puesto por tema. No se muestran los ID de clasificación, las claves secretas, el idioma de visualización ni los resultados de cada pregunta.</p>
+<h3>5. Cómo eliminar la información</h3>
+<ul>
+<li>En los Ajustes de la Aplicación → «Clasificación» → «Eliminar datos de clasificación», puede eliminar de inmediato los registros de nombre visible, puntuación, puesto y nivel que se encuentran en el servidor.</li>
+<li>Si no puede eliminarlos, por ejemplo después de desinstalar la Aplicación, póngase en contacto con <a href="mailto:contact@yolca.dev">contact@yolca.dev</a> indicando el «ID de clasificación» que aparece en los Ajustes. Lo verificaremos y los eliminaremos.</li>
+<li>Un nombre visible inapropiado puede sustituirse por un nombre provisional a raíz de una denuncia o de nuestra revisión (Términos de uso).</li>
+</ul>
+<h3>6. Información tratada únicamente en el dispositivo</h3>
+<ul>
+<li>Las expresiones abiertas, las expresiones guardadas, los registros de repaso, los días de estudio, la posición de lectura, los diversos ajustes y las mejores marcas personales se guardan únicamente en el dispositivo.</li>
+<li>Foto de fondo: la foto que elige el usuario se copia dentro de la Aplicación y se usa como fondo. La pantalla de selección de fotos pertenece al sistema operativo, y la Aplicación recibe únicamente la foto elegida. La foto no se nos envía.</li>
+<li>Imagen del resultado de «Desafío»: al pulsar «Compartir», se crea una imagen del resultado y se entrega a la pantalla de compartir del sistema operativo. Solo se guarda en Fotos si el usuario elige «Guardar imagen» (en ese momento se solicita el permiso adicional para añadir a Fotos).</li>
+<li>Lectura en voz alta: cuando se usa la función de síntesis de voz del dispositivo (del sistema operativo), el texto que se lee en voz alta se entrega a dicha función. Para las expresiones en inglés se reproduce el audio incluido en la Aplicación.</li>
+<li>Expresiones desbloqueadas con anuncios: cuáles se han desbloqueado y el tema desbloqueado con anuncios ese día se guardan únicamente en el dispositivo.</li>
+<li>Copia de seguridad: con «Guardar en un archivo», los registros (incluidas las expresiones desbloqueadas con anuncios) se guardan en el lugar que elija el usuario. Nosotros no recibimos el archivo. La clave secreta de la clasificación no se incluye en la copia de seguridad.</li>
+</ul>
+<h3>7. Publicidad (Google AdMob)</h3>
+<ul>
+<li>Cuando un usuario que no ha comprado temas elige una de las siguientes opciones, la Aplicación muestra un anuncio en vídeo mediante el servicio publicitario de Google LLC (Google AdMob): seguir jugando tras perder en «Desafío» o desbloquear, viendo un anuncio, expresiones que aún no se pueden leer. No se muestran anuncios en ningún otro lugar. A los usuarios que han comprado «Todos los temas» no se les muestran anuncios.</li>
+<li>Solo se muestran anuncios que no se basan en los intereses ni en el comportamiento anterior del usuario (anuncios no personalizados).</li>
+<li>En el iPhone, la Aplicación solicita el «permiso de seguimiento» tras el primer inicio. Si el usuario lo concede, el servicio publicitario puede usar el identificador de publicidad (IDFA) para limitar el número de veces que se muestran los anuncios, medir su eficacia y prevenir el fraude. Todas las funciones de la Aplicación pueden usarse aunque no se conceda. Lo elegido puede cambiarse en cualquier momento en los Ajustes del iPhone. Aunque se conceda, no se muestran anuncios personalizados.</li>
+<li>Para mostrar anuncios, limitar el número de veces que se muestran, medir su eficacia, prevenir el fraude y realizar análisis, el servicio publicitario puede enviar a Google la siguiente información: dirección IP (que puede usarse para estimar la región aproximada), identificadores del dispositivo (ID de publicidad y ID de conjunto de apps en Android, un identificador a nivel de app en iPhone, etc.), información sobre la visualización de anuncios y las interacciones (anuncios vistos, toques, reproducción de vídeo), información sobre el inicio y el uso de la Aplicación e información sobre fallos y rendimiento (registros de bloqueos, tiempo de inicio, etc.). Incluso en el dispositivo de un usuario que no ve anuncios, al iniciarse la Aplicación se comunica con Google para comprobar el consentimiento y preparar el servicio publicitario.</li>
+<li>A los usuarios del Espacio Económico Europeo, el Reino Unido, Suiza y otras regiones se les muestra la pantalla de consentimiento de Google. Lo elegido puede cambiarse en cualquier momento en los Ajustes de la Aplicación → «Opciones de privacidad» (esta fila solo se muestra en las regiones donde se necesita la pantalla de consentimiento).</li>
+<li>Para saber cómo trata Google la información, consulte la política de privacidad de Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) y la explicación de cómo Google usa la información de las apps que utilizan sus servicios (<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>).</li>
+</ul>
+<h3>8. Compra (Todos los temas)</h3>
+<ul>
+<li>El pago de la compra de «Todos los temas» lo gestiona Apple (App Store). No recibimos información de pago (como números de tarjeta).</li>
+<li>Para confirmar la compra y para «Restaurar compras», utilizamos el servicio de RevenueCat, Inc. Este servicio envía a RevenueCat un número anónimo que la Aplicación genera en el dispositivo (el ID de usuario de RevenueCat) y un registro de la compra (producto, fecha y hora de la compra, número de transacción, país o región y precio). Podemos consultar en el panel de administración de RevenueCat datos agregados, como el número de compras. No se vincula con el ID de clasificación.</li>
+<li>Para saber cómo trata RevenueCat la información, consulte la política de privacidad de RevenueCat (<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>).</li>
+</ul>
+<h3>9. Uso por menores</h3>
+<p>La clasificación por edades de la Aplicación es de 13 años o más. Dado que en la clasificación mundial los nombres visibles se muestran a otros usuarios, no utilice su nombre real ni ningún nombre que permita identificar a una persona.</p>
+<h3>10. Modificaciones</h3>
+<p>Cuando modifiquemos esta Política, lo anunciaremos en esta página.</p>
+<h3>11. Contacto</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>Fecha de entrada en vigor: 6 de noviembre de 2026</p>
+</section>
+<section id="de" lang="de">
+<h2>Datenschutzerklärung für Idiom Shelf</h2>
+<p>Yolca (nachfolgend „wir“) legt nachfolgend fest, wie Informationen der Nutzer in der App „Idiom Shelf“ (nachfolgend „App“) behandelt werden.</p>
+<h3>1. Grundsatz</h3>
+<p>Die App hat keine Funktion zur Eingabe von Name, E-Mail-Adresse, Telefonnummer o. Ä. und bietet keine Kontoregistrierung.</p>
+<p>Lernaufzeichnungen werden ausschließlich auf dem Gerät gespeichert. Informationen werden nur dann an unseren Server gesendet, wenn der Nutzer an der „Weltrangliste“ teilnimmt (Abschnitt 2).</p>
+<p>Für Werbung nutzt die App den Werbedienst von Google (Google AdMob), zur Bestätigung von Käufen den Dienst von RevenueCat, Inc. Diese Dienste kommunizieren mit den jeweiligen Unternehmen, ohne über unseren Server zu laufen (Abschnitte 7 und 8).</p>
+<h3>2. Für die Weltrangliste gesendete Informationen</h3>
+<p>Nur wenn der Nutzer über „Rangliste“ in der „Challenge“ teilnimmt und den Nutzungsbedingungen und dieser Erklärung zustimmt, werden die folgenden Informationen an unseren Server gesendet. Wenn er nicht teilnimmt, wird nichts gesendet.</p>
+<table>
+<tr><th>Gesendete Information</th><th>Inhalt</th><th>Verwendungszweck</th></tr>
+<tr><td>Ranglisten-ID</td><td>Eine Zufallsnummer, die die App auf dem Gerät erzeugt (nicht mit Name oder Gerät verknüpft)</td><td>Unterscheidung der Nutzer</td></tr>
+<tr><td>Geheimcode (Token)</td><td>Eine Zufallszahl, die die App auf dem Gerät erzeugt. Der Server speichert nur eine nicht umkehrbare Form (Hash)</td><td>Verhinderung, dass andere sich als der Nutzer ausgeben und Punkte senden</td></tr>
+<tr><td>Anzeigename</td><td>Der vom Nutzer festgelegte Name (wenn keiner festgelegt wurde, ein vorläufiger Name in der Form „Player 1234“)</td><td>Anzeige in der Rangliste</td></tr>
+<tr><td>Ergebnisse von „Endlos“</td><td>Je Spiel: Punkte, gespieltes Thema („Alle Themen“ oder welches Thema), Schwierigkeit, ob eine Wiederbelebung genutzt wurde sowie je Frage die Nummer des Ausdrucks, ob richtig geantwortet wurde, benötigte Zeit, Zeitlimit und ob ein Hinweis verwendet wurde</td><td>Neuberechnung der Punkte zur Betrugsverhinderung; Berechnung von Wochenplätzen und Ligen sowie von Plätzen je Thema</td></tr>
+<tr><td>Anzeigesprache</td><td>Die Anzeigesprache der App</td><td>Zählung der Nutzer je Sprache; Ranglisten je Sprache (falls veröffentlicht)</td></tr>
+<tr><td>Meldungen</td><td>Wenn der Nutzer den Anzeigenamen eines anderen Nutzers meldet: die Ranglisten-ID dieses Nutzers und der Grund</td><td>Bearbeitung unangemessener Anzeigenamen</td></tr>
+</table>
+<p>Folgende Informationen werden nicht an unseren Server gesendet: Name, E-Mail-Adresse, Telefonnummer, Gerätekennungen (z. B. Werbe-ID), Gerätemodell, Standort, Kontakte, Fotos, Lernaufzeichnungen (geöffnete Ausdrücke, gespeicherte Ausdrücke, Wiederholungsaufzeichnungen), Ergebnisse von Stufen, per Werbung freigeschaltete Ausdrücke sowie Kaufinformationen.</p>
+<h3>3. Speicherort und Speicherdauer</h3>
+<ul>
+<li>Gesendete Informationen werden bei Diensten von Cloudflare, Inc. (Cloudflare Workers, D1) gespeichert und dort verarbeitet. Der Speicherort kann außerhalb Japans liegen.</li>
+<li>Speicherdauer:</li>
+<ul>
+<li>Aufzeichnungen zu Anzeigename, Wochenpunkten, Platz, Liga und der Bestpunktzahl je Thema: bis der Nutzer sie löscht (siehe Abschnitt 5)</li>
+<li>Aufzeichnungen zu jedem Eingang (damit dasselbe Ergebnis nicht zweimal gezählt wird; Eingangsnummer, Punkte, Zeitpunkt des Eingangs): 14 Tage</li>
+<li>Ergebnisse einzelner Fragen (Nummer des Ausdrucks, ob richtig geantwortet wurde, benötigte Zeit, Zeitlimit, Hinweis): werden nicht gespeichert. Sie werden beim Eingang sofort verwendet, um die Punkte neu zu berechnen und zu prüfen, und nach der Prüfung nicht aufbewahrt. Aufbewahrt werden nur die daraus berechneten Punkte, die Anzahl der Spiele und die Schwierigkeit, die Bestpunktzahl je Thema sowie die Summen der Punkte und der Spielzeit je Anzeigesprache (zur Verhinderung unzulässiger Punkte)</li>
+<li>Kommunikationsprotokolle (Protokolle von Cloudflare): Wir speichern keine Aufzeichnung der einzelnen Anfragen; nur Fehlerprotokolle des Servers (ohne Nutzerdaten) werden 7 Tage lang aufbewahrt</li>
+</ul>
+<li>Bei der Kommunikation wird die IP-Adresse der Quelle von Cloudflare für Zwecke der Kommunikation verarbeitet. Wir speichern IP-Adressen nicht als Ranglistendaten (wir verwenden sie nur, um die Anzahl der Sendungen innerhalb kurzer Zeit zu zählen).</li>
+<li>Außer in gesetzlich vorgesehenen Fällen verkaufen oder geben wir die für die Rangliste gesendeten Informationen nicht an Dritte weiter. Wir verwenden sie nicht für Werbung oder Tracking.</li>
+</ul>
+<h3>4. Öffentlich sichtbare Informationen</h3>
+<p>In der Rangliste werden anderen Nutzern Anzeigenamen, Wochenpunkte, Plätze, Ligen sowie die Bestpunktzahl und der Platz je Thema angezeigt. Ranglisten-IDs, Geheimcodes, die Anzeigesprache und die Ergebnisse einzelner Fragen werden nicht angezeigt.</p>
+<h3>5. So löschen Sie Informationen</h3>
+<ul>
+<li>Unter Einstellungen der App → „Rangliste“ → „Ranglistendaten löschen“ können Sie die auf dem Server gespeicherten Aufzeichnungen zu Anzeigename, Punkten, Platz und Liga sofort löschen.</li>
+<li>Wenn eine Löschung nicht möglich ist, etwa nach dem Entfernen der App, wenden Sie sich bitte unter <a href="mailto:contact@yolca.dev">contact@yolca.dev</a> an uns und geben Sie die in den Einstellungen angezeigte „Ranglisten-ID“ an. Wir prüfen dies und löschen die Daten.</li>
+<li>Ein unangemessener Anzeigename kann aufgrund einer Meldung oder unserer Prüfung durch einen vorläufigen Namen ersetzt werden (Nutzungsbedingungen).</li>
+</ul>
+<h3>6. Ausschließlich auf dem Gerät verarbeitete Informationen</h3>
+<ul>
+<li>Geöffnete Ausdrücke, gespeicherte Ausdrücke, Wiederholungsaufzeichnungen, Lerntage, Leseposition, verschiedene Einstellungen und persönliche Bestleistungen werden ausschließlich auf dem Gerät gespeichert.</li>
+<li>Hintergrundfoto: Ein vom Nutzer ausgewähltes Foto wird in die App kopiert und als Hintergrund verwendet. Die Auswahlansicht für Fotos gehört zum Betriebssystem, und die App erhält nur das eine ausgewählte Foto. Das Foto wird nicht an uns gesendet.</li>
+<li>Ergebnisbild der „Challenge“: Wenn Sie auf „Teilen“ tippen, wird ein Bild des Ergebnisses erstellt und an die Teilen-Ansicht des Betriebssystems übergeben. Nur wenn Sie „Bild sichern“ wählen, wird es in Fotos gespeichert (dabei wird die zusätzliche Berechtigung zum Hinzufügen zu Fotos angefragt).</li>
+<li>Vorlesen: Wird die Sprachsynthese des Geräts (des Betriebssystems) verwendet, wird der vorzulesende Text an die Sprachsynthese des Geräts übergeben. Bei englischen Ausdrücken wird der in der App enthaltene Ton abgespielt.</li>
+<li>Per Werbung freigeschaltete Ausdrücke: Welche Ausdrücke freigeschaltet wurden und welches Thema an diesem Tag per Werbung freigeschaltet wurde, wird ausschließlich auf dem Gerät gespeichert.</li>
+<li>Sicherung: Mit „In Datei sichern“ werden die Aufzeichnungen (einschließlich der per Werbung freigeschalteten Ausdrücke) an einem vom Nutzer gewählten Speicherort gespeichert. Wir erhalten die Datei nicht. Der Geheimcode der Rangliste ist nicht in der Sicherung enthalten.</li>
+</ul>
+<h3>7. Werbung (Google AdMob)</h3>
+<ul>
+<li>Wenn ein Nutzer, der kein Thema gekauft hat, eine der folgenden Möglichkeiten wählt, zeigt die App mit dem Werbedienst von Google LLC (Google AdMob) eine Videowerbung an: in der „Challenge“ nach dem Spielende weiterspielen oder noch nicht lesbare Ausdrücke durch Ansehen einer Werbung freischalten. An anderen Stellen wird keine Werbung angezeigt. Nutzern, die „Alle Themen“ gekauft haben, wird keine Werbung angezeigt.</li>
+<li>Angezeigt wird nur Werbung, die nicht auf den Interessen oder dem bisherigen Verhalten des Nutzers beruht (nicht personalisierte Werbung).</li>
+<li>Auf dem iPhone fragt die App nach dem ersten Start nach der „Tracking-Erlaubnis“. Erlaubt der Nutzer sie, kann der Werbedienst die Werbekennung (IDFA) zur Begrenzung der Anzeigehäufigkeit, zur Auswertung der Wirkung und zur Betrugsverhinderung verwenden. Auch ohne Erlaubnis sind alle Funktionen der App nutzbar. Die getroffene Auswahl kann jederzeit in den Einstellungen des iPhones geändert werden. Auch bei erteilter Erlaubnis wird keine personalisierte Werbung angezeigt.</li>
+<li>Zur Anzeige von Werbung, zur Begrenzung der Anzeigehäufigkeit, zur Auswertung der Wirkung, zur Betrugsverhinderung und zur Analyse kann der Werbedienst die folgenden Informationen an Google senden: IP-Adresse (kann zur Schätzung der ungefähren Region verwendet werden), Gerätekennungen (Werbe-ID und App-Set-ID bei Android, eine appbezogene Kennung beim iPhone usw.), Informationen zu Werbeanzeigen und Interaktionen (angesehene Werbung, Tippen, Videowiedergabe), Informationen zu App-Start und -Bedienung sowie Informationen zu Fehlern und Leistung (Absturzprotokolle, Startzeit usw.). Auch auf dem Gerät eines Nutzers, der keine Werbung ansieht, kommuniziert die App beim Start mit Google, um die Einwilligung zu prüfen und den Werbedienst vorzubereiten.</li>
+<li>Nutzern im Europäischen Wirtschaftsraum, im Vereinigten Königreich, in der Schweiz und in ähnlichen Regionen wird der Einwilligungsbildschirm von Google angezeigt. Die getroffene Auswahl kann jederzeit unter Einstellungen der App → „Datenschutzoptionen“ geändert werden (diese Zeile wird nur in Regionen angezeigt, in denen ein Einwilligungsbildschirm erforderlich ist).</li>
+<li>Zur Verarbeitung von Informationen durch Google siehe die Datenschutzerklärung von Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) und die Erläuterung, wie Google Informationen aus Apps verwendet, die seine Dienste nutzen (<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>).</li>
+</ul>
+<h3>8. Kauf (Alle Themen)</h3>
+<ul>
+<li>Die Zahlung für den Kauf von „Alle Themen“ wird von Apple (App Store) abgewickelt. Wir erhalten keine Zahlungsinformationen (z. B. Kartennummern).</li>
+<li>Zur Bestätigung des Kaufs und für „Käufe wiederherstellen“ nutzen wir den Dienst von RevenueCat, Inc. Dieser Dienst sendet eine anonyme Nummer, die die App auf dem Gerät erzeugt (die RevenueCat-Nutzernummer), und einen Kaufdatensatz (Produkt, Zeitpunkt des Kaufs, Transaktionsnummer, Land oder Region, Preis) an RevenueCat. Wir sehen in der Verwaltungsoberfläche von RevenueCat möglicherweise zusammengefasste Auswertungen wie die Anzahl der Käufe. Eine Verknüpfung mit der Ranglisten-ID erfolgt nicht.</li>
+<li>Zur Verarbeitung von Informationen durch RevenueCat siehe die Datenschutzerklärung von RevenueCat (<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>).</li>
+</ul>
+<h3>9. Nutzung durch Kinder</h3>
+<p>Die Altersfreigabe der App ist ab 13 Jahren. Da in der Weltrangliste Anzeigenamen anderen Nutzern angezeigt werden, verwenden Sie bitte keinen echten Namen und keinen Namen, der eine Person identifizierbar macht.</p>
+<h3>10. Änderungen</h3>
+<p>Wenn wir diese Erklärung ändern, geben wir dies auf dieser Seite bekannt.</p>
+<h3>11. Kontakt</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>Datum des Inkrafttretens: 6. November 2026</p>
+</section>
+<section id="fr" lang="fr">
+<h2>Politique de confidentialité d&#x27;Idiom Shelf</h2>
+<p>Yolca (ci-après « nous ») définit ci-dessous le traitement des informations des utilisateurs dans l&#x27;application « Idiom Shelf » (ci-après l&#x27;« Application »).</p>
+<h3>1. Principe de base</h3>
+<p>L&#x27;Application ne dispose d&#x27;aucune fonction permettant de saisir un nom, une adresse e-mail, un numéro de téléphone, etc., et n&#x27;a pas d&#x27;inscription de compte.</p>
+<p>Les enregistrements d&#x27;apprentissage sont conservés uniquement sur l&#x27;appareil. Des informations ne sont envoyées à notre serveur que si l&#x27;utilisateur participe au « classement mondial » (article 2).</p>
+<p>Pour la publicité, l&#x27;Application utilise le service publicitaire de Google (Google AdMob) et, pour confirmer les achats, le service de RevenueCat, Inc. Ces services communiquent avec les sociétés concernées sans passer par notre serveur (articles 7 et 8).</p>
+<h3>2. Informations envoyées pour le classement mondial</h3>
+<p>Uniquement si l&#x27;utilisateur participe depuis « Classement » dans « Défi » et accepte les Conditions d&#x27;utilisation et la présente Politique, les informations suivantes sont envoyées à notre serveur. S&#x27;il ne participe pas, rien n&#x27;est envoyé.</p>
+<table>
+<tr><th>Information envoyée</th><th>Contenu</th><th>Finalité</th></tr>
+<tr><td>ID de classement</td><td>Un numéro aléatoire généré par l&#x27;Application sur l&#x27;appareil (sans lien avec le nom ni l&#x27;appareil)</td><td>Distinguer les utilisateurs</td></tr>
+<tr><td>Code secret (jeton)</td><td>Un nombre aléatoire généré par l&#x27;Application sur l&#x27;appareil. Le serveur ne conserve qu&#x27;une forme irréversible (hachage)</td><td>Empêcher qu&#x27;une autre personne usurpe l&#x27;identité de l&#x27;utilisateur pour envoyer des scores</td></tr>
+<tr><td>Nom affiché</td><td>Le nom choisi par l&#x27;utilisateur (à défaut, un nom provisoire de la forme « Player 1234 »)</td><td>Affichage dans le classement</td></tr>
+<tr><td>Résultats de « Sans fin »</td><td>Pour chaque partie : score, thème joué (« Tous les thèmes » ou le thème concerné), difficulté, si une réanimation a été utilisée et, pour chaque question, le numéro de l&#x27;expression, l&#x27;exactitude de la réponse, le temps écoulé, le temps limite et l&#x27;utilisation éventuelle d&#x27;un indice</td><td>Recalculer les scores pour prévenir la fraude ; calculer les rangs et les niveaux hebdomadaires ainsi que les rangs par thème</td></tr>
+<tr><td>Langue d&#x27;affichage</td><td>La langue d&#x27;affichage de l&#x27;Application</td><td>Comptabiliser les utilisateurs par langue ; classements par langue (s&#x27;ils sont publiés)</td></tr>
+<tr><td>Signalements</td><td>Lorsque l&#x27;utilisateur signale le nom affiché d&#x27;un autre utilisateur, l&#x27;ID de classement de celui-ci et le motif</td><td>Traiter les noms affichés inappropriés</td></tr>
+</table>
+<p>Les informations suivantes ne sont pas envoyées à notre serveur : nom, adresse e-mail, numéro de téléphone, identifiants de l&#x27;appareil (tels que l&#x27;identifiant publicitaire), modèle de l&#x27;appareil, localisation, contacts, photos, enregistrements d&#x27;apprentissage (expressions ouvertes, expressions enregistrées, enregistrements de révision), résultats des étapes, expressions débloquées par la publicité ainsi que les informations d&#x27;achat.</p>
+<h3>3. Lieu et durée de conservation</h3>
+<ul>
+<li>Les informations envoyées sont conservées et traitées sur des services de Cloudflare, Inc. (Cloudflare Workers, D1). Le lieu de conservation peut se situer en dehors du Japon.</li>
+<li>Durées de conservation :</li>
+<ul>
+<li>Enregistrements du nom affiché, du score hebdomadaire, du rang, du niveau et du meilleur score par thème : jusqu&#x27;à ce que l&#x27;utilisateur les supprime (voir l&#x27;article 5)</li>
+<li>Enregistrements de chaque réception (afin de ne pas compter deux fois le même résultat ; numéro de réception, score, heure de réception) : 14 jours</li>
+<li>Résultats de chaque question (numéro de l&#x27;expression, exactitude de la réponse, temps écoulé, temps limite, indice) : non conservés. Ils servent, dès leur réception, à recalculer et vérifier le score, et ne sont pas gardés après la vérification. Seuls sont conservés le score, le nombre de parties et la difficulté qui en sont calculés, le meilleur score par thème, ainsi que les totaux des scores et du temps de jeu par langue d&#x27;affichage (pour prévenir les scores frauduleux)</li>
+<li>Journaux de communication (journaux de Cloudflare) : nous ne conservons pas d&#x27;enregistrement de chaque requête ; seuls les journaux d&#x27;erreurs du serveur (sans informations sur les utilisateurs) sont conservés 7 jours</li>
+</ul>
+<li>Lors de la communication, l&#x27;adresse IP source est traitée par Cloudflare aux fins de la communication. Nous ne conservons pas les adresses IP en tant que données du classement (nous les utilisons uniquement pour compter le nombre d&#x27;envois sur une courte durée).</li>
+<li>Sauf dans les cas prévus par la loi, nous ne vendons ni ne transmettons à des tiers les informations envoyées pour le classement. Nous ne les utilisons ni pour la publicité ni pour le suivi.</li>
+</ul>
+<h3>4. Informations rendues publiques</h3>
+<p>Dans le classement, les noms affichés, les scores hebdomadaires, les rangs, les niveaux, ainsi que le meilleur score et le rang par thème sont visibles par les autres utilisateurs. Les ID de classement, les codes secrets, la langue d&#x27;affichage et les résultats de chaque question ne sont pas affichés.</p>
+<h3>5. Comment supprimer les informations</h3>
+<ul>
+<li>Dans les Réglages de l&#x27;Application → « Classement » → « Supprimer les données du classement », vous pouvez supprimer immédiatement les enregistrements du nom affiché, du score, du rang et du niveau conservés sur le serveur.</li>
+<li>Si vous ne pouvez pas les supprimer, par exemple après la désinstallation de l&#x27;Application, veuillez nous contacter à l&#x27;adresse <a href="mailto:contact@yolca.dev">contact@yolca.dev</a> en indiquant l&#x27;« ID de classement » affiché dans les Réglages. Nous vérifierons et procéderons à la suppression.</li>
+<li>Un nom affiché inapproprié peut être remplacé par un nom provisoire à la suite d&#x27;un signalement ou de notre examen (Conditions d&#x27;utilisation).</li>
+</ul>
+<h3>6. Informations traitées uniquement sur l&#x27;appareil</h3>
+<ul>
+<li>Les expressions ouvertes, les expressions enregistrées, les enregistrements de révision, les jours d&#x27;étude, la position de lecture, les différents réglages et les meilleurs scores personnels sont conservés uniquement sur l&#x27;appareil.</li>
+<li>Photo d&#x27;arrière-plan : une photo choisie par l&#x27;utilisateur est copiée dans l&#x27;Application et utilisée comme arrière-plan. L&#x27;écran de sélection des photos relève du système d&#x27;exploitation, et l&#x27;Application ne reçoit que la photo choisie. La photo ne nous est jamais envoyée.</li>
+<li>Image du résultat du « Défi » : lorsque vous appuyez sur « Partager », une image du résultat est créée et transmise à l&#x27;écran de partage du système d&#x27;exploitation. Elle n&#x27;est enregistrée dans Photos que si vous choisissez « Enregistrer l&#x27;image » (l&#x27;autorisation supplémentaire d&#x27;ajout à Photos est alors demandée).</li>
+<li>Lecture à voix haute : lorsque la fonction de synthèse vocale de l&#x27;appareil (du système d&#x27;exploitation) est utilisée, le texte à lire est transmis à cette fonction. Pour les expressions anglaises, c&#x27;est l&#x27;audio inclus dans l&#x27;Application qui est lu.</li>
+<li>Expressions débloquées par la publicité : les expressions débloquées et le thème débloqué par publicité ce jour-là sont conservés uniquement sur l&#x27;appareil.</li>
+<li>Sauvegarde : avec « Enregistrer dans un fichier », les enregistrements (y compris les expressions débloquées par la publicité) sont conservés à l&#x27;emplacement choisi par l&#x27;utilisateur. Nous ne recevons pas le fichier. Le code secret du classement n&#x27;est pas inclus dans la sauvegarde.</li>
+</ul>
+<h3>7. Publicité (Google AdMob)</h3>
+<ul>
+<li>Lorsqu&#x27;un utilisateur n&#x27;ayant acheté aucun thème choisit l&#x27;une des actions suivantes, l&#x27;Application affiche une publicité vidéo grâce au service publicitaire de Google LLC (Google AdMob) : continuer à jouer après la fin de partie dans le « Défi », ou débloquer, en regardant une publicité, des expressions qu&#x27;il n&#x27;est pas encore possible de lire. Aucune publicité n&#x27;est affichée ailleurs. Aucune publicité n&#x27;est affichée aux utilisateurs ayant acheté « Tous les thèmes ».</li>
+<li>Seules sont affichées les publicités qui ne reposent ni sur les centres d&#x27;intérêt de l&#x27;utilisateur ni sur son comportement passé (publicités non personnalisées).</li>
+<li>Sur iPhone, l&#x27;Application demande l&#x27;« autorisation de suivi » après le premier lancement. Si l&#x27;utilisateur l&#x27;accorde, le service publicitaire peut utiliser l&#x27;identifiant publicitaire (IDFA) pour limiter le nombre d&#x27;affichages, mesurer l&#x27;efficacité et prévenir la fraude. Toutes les fonctions de l&#x27;Application restent utilisables même sans cette autorisation. Le choix effectué peut être modifié à tout moment dans les Réglages de l&#x27;iPhone. Même si l&#x27;autorisation est accordée, aucune publicité personnalisée n&#x27;est affichée.</li>
+<li>Pour afficher les publicités, limiter le nombre d&#x27;affichages, mesurer l&#x27;efficacité, prévenir la fraude et réaliser des analyses, le service publicitaire peut envoyer à Google les informations suivantes : adresse IP (pouvant servir à estimer la région approximative), identifiants de l&#x27;appareil (identifiant publicitaire et identifiant d&#x27;ensemble d&#x27;applications sur Android, identifiant propre à l&#x27;application sur iPhone, etc.), informations sur l&#x27;affichage des publicités et les interactions (publicités vues, appuis, lecture de vidéos), informations sur le lancement et l&#x27;utilisation de l&#x27;Application, informations sur les défaillances et les performances (rapports de plantage, durée de lancement, etc.). Même sur l&#x27;appareil d&#x27;un utilisateur qui ne regarde pas de publicités, l&#x27;Application communique avec Google au lancement afin de vérifier le consentement et de préparer le service publicitaire.</li>
+<li>Aux utilisateurs de l&#x27;Espace économique européen, du Royaume-Uni, de la Suisse et d&#x27;autres régions, l&#x27;écran de consentement de Google est affiché. Le choix effectué peut être modifié à tout moment dans les Réglages de l&#x27;Application → « Options de confidentialité » (cette ligne n&#x27;est affichée que dans les régions où un écran de consentement est nécessaire).</li>
+<li>Pour savoir comment Google traite les informations, veuillez consulter la politique de confidentialité de Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) et l&#x27;explication de la manière dont Google utilise les informations des applications qui utilisent ses services (<a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>).</li>
+</ul>
+<h3>8. Achat (Tous les thèmes)</h3>
+<ul>
+<li>Le paiement de l&#x27;achat de « Tous les thèmes » est géré par Apple (App Store). Nous ne recevons aucune information de paiement (numéro de carte, etc.).</li>
+<li>Pour confirmer l&#x27;achat et pour « Restaurer les achats », nous utilisons le service de RevenueCat, Inc. Ce service envoie à RevenueCat un numéro anonyme généré par l&#x27;Application sur l&#x27;appareil (l&#x27;identifiant d&#x27;utilisateur RevenueCat) et un enregistrement de l&#x27;achat (produit, date et heure de l&#x27;achat, numéro de transaction, pays ou région, prix). Nous pouvons consulter, dans l&#x27;interface d&#x27;administration de RevenueCat, des données agrégées telles que le nombre d&#x27;achats. Ces données ne sont pas liées à l&#x27;ID de classement.</li>
+<li>Pour savoir comment RevenueCat traite les informations, veuillez consulter la politique de confidentialité de RevenueCat (<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>).</li>
+</ul>
+<h3>9. Utilisation par les enfants</h3>
+<p>La classification d&#x27;âge de l&#x27;Application est de 13 ans et plus. Comme les noms affichés sont visibles par les autres utilisateurs dans le classement mondial, veuillez ne pas utiliser votre vrai nom ni un nom permettant d&#x27;identifier une personne.</p>
+<h3>10. Révisions</h3>
+<p>Lorsque nous réviserons la présente Politique, nous l&#x27;annoncerons sur cette page.</p>
+<h3>11. Contact</h3>
+<p><a href="mailto:contact@yolca.dev">contact@yolca.dev</a></p>
+<p>Date d&#x27;entrée en vigueur : 6 novembre 2026</p>
+</section>
+<footer>&copy; Yolca</footer>
+</div>
+</body>
+</html>
