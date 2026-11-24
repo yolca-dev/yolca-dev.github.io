@@ -32,6 +32,8 @@
       padding: 12px 16px 20px; text-align: center;
       font-size: 11px; line-height: 1.6; color: #6e6e73;
     }
+    /* 断り書きは、句の区切り（span の境目）でだけ折り返す */
+    footer span { display: inline-block; }
   </style>
 </head>
 <body>
@@ -44,8 +46,8 @@
     </div>
   </main>
   <footer>
-    <p>Apple、Appleのロゴは、米国およびその他の国で登録されたApple Inc.の商標です。</p>
-    <p>Google Play および Google Play ロゴは Google LLC の商標です。</p>
+    <p><span>Apple、Appleのロゴは、</span><span>米国およびその他の国で登録された</span><span>Apple Inc.の商標です。</span></p>
+    <p><span>Google Play および Google Play ロゴは</span> <span>Google LLC の商標です。</span></p>
   </footer>
 </body>
 </html>
