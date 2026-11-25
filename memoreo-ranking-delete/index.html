@@ -1,0 +1,172 @@
+<!doctype html>
+<!--
+  ランキングのデータの削除の依頼(2026-10-27・案・公開していない)
+  - 置き場の案: yolca.dev/ranking-delete/(yolca-site に置くのはユーザーが決めてから。main に push すると即公開)
+  - アプリを消した後でも、アプリの設定に出ていた「削除用のコード」を入れれば、ランキングのデータ(名前・アイコン・点・順位・通報の記録)を消せる
+  - Idiom Shelf でも使い回す: ?app=idiomshelf で送り先と名前が変わる(下の APPS に足す)
+  - 外の読み込みなし(フォント・スクリプトも)。送るのはコードだけ
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ranking data deletion</title>
+<style>
+  :root { --bg: #f5f7fa; --card: #ffffff; --text: #141a26; --sub: #4a5468; --line: #dfe5ec; --accent: #07633e; --danger: #a8231a; --ok: #07633e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #090e1a; --card: #0f1929; --text: #edf1fa; --sub: #889ab0; --line: #1e2c3e; --accent: #3ddc97; --danger: #ec7070; --ok: #3ddc97; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width: 520px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 8px; }
+  p { color: var(--sub); margin: 0 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  label { display: block; font-weight: 700; margin-bottom: 8px; }
+  input[type=text] { width: 100%; font: 20px/1.4 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.08em; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--text); text-transform: uppercase; }
+  .check { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0; color: var(--text); font-weight: 400; }
+  .check input { width: 22px; height: 22px; margin-top: 2px; flex: none; }
+  button { width: 100%; min-height: 48px; border: 0; border-radius: 12px; background: var(--danger); color: #fff; font: 700 16px system-ui, sans-serif; cursor: pointer; }
+  button:disabled { opacity: 0.45; cursor: default; }
+  #result { margin-top: 16px; min-height: 1.6em; font-weight: 700; }
+  #result.ok { color: var(--ok); }
+  #result.err { color: var(--danger); }
+  .where { font-size: 14px; margin-top: 20px; }
+  .lang { text-align: right; font-size: 14px; margin-bottom: 12px; }
+  .lang a { color: var(--sub); margin-left: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="lang" id="langs"></div>
+  <h1 id="title"></h1>
+  <p id="lead"></p>
+  <div class="card">
+    <form id="form">
+      <label for="code" id="codeLabel"></label>
+      <input type="text" id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="20" placeholder="XXXX-XXXX-XXXX">
+      <label class="check"><input type="checkbox" id="agree"><span id="agreeText"></span></label>
+      <button type="submit" id="send" disabled></button>
+      <div id="result" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+  <p class="where" id="where"></p>
+  <p class="where" id="contact"></p>
+</main>
+<script>
+  // アプリごとの送り先(Idiom Shelf を足すときはここに 1 行)。URL は仮(本番の名前はユーザーが決める)
+  const APPS = {
+    // メールでも消せる(2026-10-27 夜の決定)。届いたら docs/ranking/design.md の 7 章の手順で管理者が消す
+    memoreo: { name: 'Memoreo', endpoint: 'https://ranking.yolca.dev/web/delete', email: 'contact@yolca.dev' },
+    // idiomshelf: { name: 'Idiom Shelf', endpoint: 'https://rank-idiom.yolca.dev/web/delete', email: 'contact@yolca.dev' },
+  };
+  const T = {
+    ja: {
+      title: '{app} のランキングのデータを削除',
+      lead: 'アプリの設定の「削除用のコード」を入れると、ランキングのデータ(名前・アイコン・点・順位・通報の記録)をサーバーから削除します。アプリを削除した後でも使えます。',
+      code: '削除用のコード', agree: '削除すると元に戻せないことを理解しました', send: '削除する',
+      done: '削除しました。', notFound: 'このコードのデータは見つかりませんでした(すでに削除されたか、コードが違います)。',
+      bad: 'コードは 12 文字です(区切りの「-」はあってもなくても構いません)。', rate: 'しばらく待ってから、もう一度お試しください。', fail: '通信できませんでした。',
+      where: 'コードは、アプリの「設定」→「ランキング」→「削除用のコード」にあります。',
+      contact: 'コードが分からない場合は、メールで削除を依頼できます: ',
+    },
+    en: {
+      title: 'Delete your {app} ranking data',
+      lead: 'Enter the deletion code from the app settings to delete your ranking data (name, avatar, points, ranks and reports) from our server. This works even after you delete the app.',
+      code: 'Deletion code', agree: 'I understand this cannot be undone', send: 'Delete',
+      done: 'Your data has been deleted.', notFound: 'No data was found for this code (it may already be deleted, or the code is wrong).',
+      bad: 'The code has 12 characters (hyphens are optional).', rate: 'Please wait a moment and try again.', fail: "Couldn't connect.",
+      where: 'You can find the code in the app: Settings → Ranking → Deletion code.',
+      contact: "If you don't have the code, you can ask us by email: ",
+    },
+    es: {
+      title: 'Eliminar tus datos del ranking de {app}',
+      lead: 'Introduce el código de eliminación de los ajustes de la app para eliminar de nuestro servidor tus datos del ranking (nombre, avatar, puntos, posición y reportes). Funciona incluso después de eliminar la app.',
+      code: 'Código de eliminación', agree: 'Entiendo que no se puede deshacer', send: 'Eliminar',
+      done: 'Se eliminaron tus datos.', notFound: 'No se encontraron datos para este código (puede que ya se hayan eliminado o que el código no sea correcto).',
+      bad: 'El código tiene 12 caracteres (los guiones son opcionales).', rate: 'Espera un momento e inténtalo de nuevo.', fail: 'No pudimos conectarnos.',
+      where: 'El código está en la app: Ajustes → Ranking → Código de eliminación.',
+      contact: 'Si no tienes el código, puedes pedirlo por correo electrónico: ',
+    },
+    ru: {
+      title: 'Удаление данных рейтинга {app}',
+      lead: 'Введите код для удаления из настроек приложения, чтобы удалить с нашего сервера данные рейтинга (имя, аватар, очки, место и жалобы). Это работает и после удаления приложения.',
+      code: 'Код для удаления', agree: 'Я понимаю, что это действие необратимо', send: 'Удалить',
+      done: 'Данные удалены.', notFound: 'Данные для этого кода не найдены (возможно, они уже удалены или код неверный).',
+      bad: 'Код состоит из 12 символов (дефисы можно не вводить).', rate: 'Подождите немного и попробуйте снова.', fail: 'Не удалось подключиться.',
+      where: 'Код находится в приложении: Настройки → Рейтинг → Код для удаления.',
+      contact: 'Если у вас нет кода, напишите нам на почту: ',
+    },
+    zh: {
+      title: '删除你的 {app} 排行榜数据',
+      lead: '输入应用设置中的“删除码”，即可从服务器删除你的排行榜数据（名称、头像、积分、排名和举报记录）。删除应用后也可以使用。',
+      code: '删除码', agree: '我了解删除后无法撤销', send: '删除',
+      done: '已删除。', notFound: '未找到此删除码对应的数据（可能已删除，或删除码有误）。',
+      bad: '删除码为 12 个字符（可以不输入“-”）。', rate: '请稍后再试。', fail: '连接失败。',
+      where: '删除码位于应用的“设置”→“排行榜”→“删除码”。',
+      contact: '如果没有删除码，也可以通过电子邮件申请删除：',
+    },
+  };
+  const qs = new URLSearchParams(location.search);
+  const app = APPS[qs.get('app')] || APPS.memoreo;
+  const pick = (l) => (l || '').toLowerCase().slice(0, 2);
+  let lang = pick(qs.get('lang')) in T ? pick(qs.get('lang')) : (pick(navigator.language) in T ? pick(navigator.language) : 'en');
+  const $ = (id) => document.getElementById(id);
+
+  function render() {
+    const t = T[lang];
+    document.documentElement.lang = lang;
+    document.title = t.title.replace('{app}', app.name);
+    $('title').textContent = t.title.replace('{app}', app.name);
+    $('lead').textContent = t.lead;
+    $('codeLabel').textContent = t.code;
+    $('agreeText').textContent = t.agree;
+    $('send').textContent = t.send;
+    $('where').textContent = t.where;
+    $('contact').textContent = t.contact;
+    const a = document.createElement('a');
+    a.href = 'mailto:' + app.email; a.textContent = app.email;
+    $('contact').appendChild(a);
+    $('langs').innerHTML = '';
+    for (const l of Object.keys(T)) {
+      const link = document.createElement('a');
+      link.href = '#'; link.textContent = l.toUpperCase();
+      link.onclick = (e) => { e.preventDefault(); lang = l; render(); };
+      $('langs').appendChild(link);
+    }
+  }
+
+  // サーバーと同じ読み替え(小文字・区切り・空白・O→0・I/L→1)。12 文字の Crockford の Base32 でなければ null
+  function normalize(raw) {
+    const s = raw.normalize('NFKC').toUpperCase().replace(/[\s\-‐-―ー_]/g, '').replace(/O/g, '0').replace(/[IL]/g, '1');
+    return /^[0-9A-HJKMNP-TV-Z]{12}$/.test(s) ? s : null;
+  }
+
+  function update() { $('send').disabled = !($('agree').checked && normalize($('code').value)); }
+  $('code').addEventListener('input', update);
+  $('agree').addEventListener('change', update);
+
+  $('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const t = T[lang];
+    const code = normalize($('code').value);
+    const out = $('result');
+    out.className = '';
+    if (!code) { out.textContent = t.bad; out.className = 'err'; return; }
+    $('send').disabled = true;
+    try {
+      const res = await fetch(app.endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ code }) });
+      if (res.ok) { out.textContent = t.done; out.className = 'ok'; $('code').value = ''; $('agree').checked = false; return; }
+      out.textContent = res.status === 404 ? t.notFound : res.status === 429 ? t.rate : res.status === 400 ? t.bad : t.fail;
+      out.className = 'err';
+    } catch (_) {
+      out.textContent = t.fail; out.className = 'err';
+    }
+    update();
+  });
+
+  render();
+</script>
+</body>
+</html>
