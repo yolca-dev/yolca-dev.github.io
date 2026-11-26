@@ -49,5 +49,9 @@
     <p><span>Apple、Appleのロゴは、</span><span>米国およびその他の国で登録された</span><span>Apple Inc.の商標です。</span></p>
     <p><span>Google Play および Google Play ロゴは</span> <span>Google LLC の商標です。</span></p>
   </footer>
+  <!-- ストアのボタンの目印（?s=<目印>。links.json の表にある目印だけ）。目印が無い・表に無いときは、上のリンクの invite のまま
+       （アプリの「友達を誘う」が送るのは、目印なしの https://yolca.dev/kakomon/） -->
+  <script src="../assets/store-links.js"></script>
+  <script>(function () { var m = YolcaLinks.marker(location.search); if (m !== 'web') YolcaLinks.tag(document, m); })();</script>
 </body>
 </html>
