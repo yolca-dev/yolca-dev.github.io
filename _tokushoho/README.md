@@ -16,3 +16,12 @@ Memoreo・過去問レコードの 2 ページ(`memoreo-tokushoho/`・`kakomon-t
 
 - フォルダ名を `_` で始めているのは、GitHub Pages(Jekyll)が公開しないため。実際に公開されないかは、公開の時に確かめる。
 - 文面の中の「【要確認】」は未確認の印。確認が取れたら data.json から外す。
+
+## 「（税込）」の出典(2026-11-26 に確かめた)
+
+- Google Play: 「税率と付加価値税（VAT）」の「内税方式で対応する国」の一覧に日本がある。
+  https://support.google.com/googleplay/android-developer/answer/138000?hl=ja
+- App Store: Apple の Tech Talk「Explore App Store pricing upgrades」の説明文に "Prices advertised to customers in all countries except the U.S. and Canada include taxes" とある(日本の名指しではなく、除かれるのが米国とカナダだけ、という読み取り)。
+  https://developer.apple.com/videos/play/tech-talks/110364/
+  参考: 米国だけが税抜きで表示される、という説明 https://developer.apple.com/news/?id=4o5ie73a
+- 値段を変えたり、ストアの税の扱いが変わったりしたら、上の 2 つをもう一度見る。
