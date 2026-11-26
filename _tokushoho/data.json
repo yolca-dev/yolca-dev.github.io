@@ -49,22 +49,6 @@
         {"th": "動作環境", "td": [{"ul": ["iPhone・iPad：iOS 15.0 以降", "Android：Android 7.0 以降"]}]}
       ],
       "related": [["プライバシーポリシー", "https://yolca-dev.github.io/kakomon-privacy/"]]
-    },
-    {
-      "id": "idiomshelf",
-      "path": "idiomshelf/tokushoho/index.html",
-      "name": "Idiom Shelf",
-      "rows": [
-        {"common": "yago"}, {"common": "name"}, {"common": "address"}, {"common": "tel"}, {"common": "mail"},
-        {"th": "販売するもの", "td": [{"p": "アプリ「Idiom Shelf」の買い切りの商品「全テーマ」。購入すると、すべてのテーマの表現をご利用いただけます。お支払いは一度だけです。"}]},
-        {"th": "販売価格", "td": [{"p": "800円（税込・日本の App Store での価格）"}, {"abroad": true}]},
-        {"common": "fee"},
-        {"th": "支払方法", "td": [{"p": "App Store：Apple アカウントに登録された支払方法"}]},
-        {"th": "支払時期", "td": [{"p": "購入の手続きが確定した時に請求されます。"}]},
-        {"common": "deliver"}, {"common": "return"}, {"common": "defect"},
-        {"th": "動作環境", "td": [{"ul": ["iPhone・iPad：iOS 15.0 以降"]}]}
-      ],
-      "related": [["利用規約", "https://yolca.dev/idiomshelf/terms/"], ["プライバシーポリシー", "https://yolca.dev/idiomshelf/privacy/"]]
     }
   ]
 }
