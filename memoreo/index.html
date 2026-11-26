@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // 端末の言語が日本語でなければ英語で出す（ボタンの画像・断り書き・lang）。描く前に決める。
+    // JavaScript が動かないときは日本語のまま
+    (function () {
+      var l = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+      if (!/^ja(-|$)/i.test(l)) {
+        document.documentElement.lang = 'en';
+        document.documentElement.className = 'en';
+      }
+    })();
+  </script>
+  <title>Memoreo</title>
+  <link rel="icon" href="../assets/memoreo-icon.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #ffffff; color: #1d1d1f;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh;
+    }
+    main {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 24px 16px;
+    }
+    .icon { width: 128px; height: 128px; border-radius: 28px; display: block; }
+    h1 { font-size: 24px; font-weight: 700; line-height: 1.4; margin-top: 18px; }
+    /* バッジの周りの余白は、バッジの高さ（48px）の4分の1 = 12px 以上（Apple・Google の決まり）。並びの間は 16px */
+    .store-badges {
+      display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;
+      margin-top: 28px; padding: 12px;
+    }
+    .store-badges a { display: block; }
+    .store-badges img { display: block; height: 48px; width: auto; }
+    /* Google Play の公式 PNG（646×250）は上下に透明の余白（29px ずつ。見える部分は 646×192）を含む。
+       見える部分の高さを App Store と同じ 48px にする（画像は切り抜かない。48 × 250 / 192 = 62.5px、余白 62.5 × 29 / 250 = 7.25px） */
+    .store-badges img.play { height: 62.5px; margin: -7.25px 0; }
+    /* 英語の Google Play の公式 PNG（646×250）は上下左右に透明の余白（41px ずつ。見える部分は 564×168）を含む。
+       見える部分の高さを 48px にする（48 × 250 / 168 = 71.43px、余白 71.43 × 41 / 250 = 11.71px） */
+    .store-badges img.play-en { height: 71.43px; margin: -11.71px; }
+    footer {
+      padding: 12px 16px 20px; text-align: center;
+      font-size: 11px; line-height: 1.6; color: #6e6e73;
+    }
+    /* 断り書きは、句の区切り（span の境目）でだけ折り返す */
+    footer span { display: inline-block; }
+    /* 言語の切り替え（html に en が付いたら英語） */
+    html:not(.en) .en, html.en .ja { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="icon" src="../assets/memoreo-icon.png" alt="">
+    <h1>Memoreo</h1>
+    <div class="store-badges">
+      <a href="https://apps.apple.com/app/apple-store/id6790348995?pt=129084556&amp;ct=web&amp;mt=8"><img class="ja" src="../assets/badges/app-store-ja.svg" alt="App Storeでダウンロード"><img class="en" src="../assets/badges/app-store-en.svg" alt="Download on the App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.yolca.memoreo&amp;referrer=utm_source%3Dweb%26utm_medium%3Dweb"><img class="play ja" src="../assets/badges/google-play-ja.png" alt="Google Playで手に入れよう"><img class="play-en en" src="../assets/badges/google-play-en.png" alt="Get it on Google Play"></a>
+    </div>
+  </main>
+  <footer>
+    <div class="ja">
+      <p><span>Apple、Appleのロゴは、</span><span>米国およびその他の国で登録された</span><span>Apple Inc.の商標です。</span></p>
+      <p><span>Google Play および Google Play ロゴは</span> <span>Google LLC の商標です。</span></p>
+    </div>
+    <div class="en" lang="en">
+      <p><span>Apple and the Apple logo are trademarks of Apple Inc.,</span> <span>registered in the U.S. and other countries.</span></p>
+      <p><span>Google Play is a trademark of Google LLC.</span></p>
+    </div>
+  </footer>
+  <script src="../assets/store-links.js"></script>
+  <script>YolcaLinks.hub();</script>
+</body>
+</html>
