@@ -1,0 +1,166 @@
+<!doctype html>
+<!--
+  Memoreo グループ招待ページ(2026-11-28・案・公開していない)
+  - リンクの形: https://yolca.dev/memoreo/join/#<招待コード 10 文字>
+  - コードは # の後。ブラウザは # の後をサーバーへ送らないので、配信元(GitHub Pages)の記録に残らない
+  - アプリが入っていれば OS がこのページを開かずにアプリを開く(iOS=Universal Links・Android=App Links。.well-known の 2 ファイル)。
+    ここに来るのは、アプリが入っていない人と、リンクの確かめができていない端末
+  - グループの名前・アイコン・メンバーは出さない。外部への送信・解析のタグ・外部の読み込みなし(全部この 1 ファイルの中。アイコン画像は同じサイトの assets)
+  - ストアのリンクの目印: App Store=ct=invite / Google Play=utm_source=invite。形は assets/store-links.js の apple()・play() と同じ。
+    目印 invite は links.json(生成元)にまだ無い=集計の表に載せるかは未決(go/invite/ は yolca-site に存在しなかったため、ここに直接書いた)
+  - 文言: 「」の中はアプリの画面の表記(lib/ranking/ranking_strings.dart の tabLabel・segGroups・gJoin)と同じ。
+    それ以外の文(title・lead・open・get など)は案・未確認(アプリ側に対応する文言なし)。ru・zh・es の訳は特に未確認
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Memoreo</title>
+<link rel="icon" href="../../assets/memoreo-icon.png">
+<style>
+  :root { --bg: #f5f7fa; --card: #ffffff; --text: #141a26; --sub: #4a5468; --line: #dfe5ec; --accent: #07633e; --on-accent: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #090e1a; --card: #0f1929; --text: #edf1fa; --sub: #889ab0; --line: #1e2c3e; --accent: #3ddc97; --on-accent: #06121f; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", "Noto Sans SC", sans-serif; }
+  main { max-width: 520px; margin: 0 auto; padding: 24px 16px 48px; }
+  .lang { text-align: right; font-size: 14px; margin-bottom: 12px; }
+  .lang a { color: var(--sub); margin-left: 10px; display: inline-block; padding: 4px 0; }
+  .head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .head img { width: 48px; height: 48px; border-radius: 11px; display: block; }
+  h1 { font-size: 22px; line-height: 1.35; margin: 0; }
+  p { color: var(--sub); margin: 0 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; text-align: center; }
+  .label { font-size: 14px; color: var(--sub); margin-bottom: 4px; }
+  .code { font: 700 30px/1.3 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.08em; overflow-wrap: anywhere; user-select: all; }
+  .copy { margin-top: 12px; min-height: 44px; padding: 0 20px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 600 15px system-ui, sans-serif; cursor: pointer; }
+  .steps { margin: 20px 0 0; color: var(--text); }
+  .btns { display: grid; gap: 10px; margin-top: 20px; }
+  .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 12px; border-radius: 12px; background: var(--accent); color: var(--on-accent); font-weight: 700; text-decoration: none; text-align: center; }
+  .btn.sec { background: var(--card); color: var(--text); border: 1px solid var(--line); font-weight: 600; }
+  .get { margin: 24px 0 0; font-size: 14px; color: var(--sub); }
+  .get + .btns { margin-top: 8px; }
+  .missing { color: var(--text); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="lang" id="langs"></div>
+  <div class="head"><img src="../../assets/memoreo-icon.png" alt=""><h1 id="title"></h1></div>
+  <p id="lead"></p>
+  <div class="card" id="withCode" hidden>
+    <div class="label" id="codeLabel"></div>
+    <div class="code" id="code"></div>
+    <button type="button" class="copy" id="copy"></button>
+  </div>
+  <p class="card missing" id="missing" hidden></p>
+  <div class="btns" id="openWrap" hidden>
+    <a class="btn" id="open" href="#"></a>
+  </div>
+  <p class="steps" id="steps"></p>
+  <p class="get" id="get"></p>
+  <div class="btns">
+    <a class="btn sec" id="appStore" href="https://apps.apple.com/app/apple-store/id6790348995?pt=129084556&amp;ct=invite&amp;mt=8">App Store</a>
+    <a class="btn sec" id="googlePlay" href="https://play.google.com/store/apps/details?id=com.yolca.memoreo&amp;referrer=utm_source%3Dinvite%26utm_medium%3Dweb">Google Play</a>
+  </div>
+</main>
+<script>
+  const T = {
+    ja: { title: 'グループへの招待', lead: 'Memoreo のランキングのグループに招待されています。', code: '招待コード', copy: 'コピー', copied: 'コピーしました',
+          open: 'アプリを開いて参加', get: 'まだの人はこちらから入手',
+          steps: 'アプリで「ランキング」→「グループ」→「コードで参加」にこのコードを入れてください。',
+          missing: '招待コードが見つかりません。招待した人にコードかリンクを聞いてください。' },
+    en: { title: 'Group invitation', lead: "You've been invited to a group in the Memoreo ranking.", code: 'Invite code', copy: 'Copy', copied: 'Copied',
+          open: 'Open the app to join', get: 'Get the app',
+          steps: 'In the app, go to "Ranking" → "Groups" → "Join with a code" and enter this code.',
+          missing: 'No invite code found. Ask the person who invited you for the code or the link.' },
+    es: { title: 'Invitación a un grupo', lead: 'Te han invitado a un grupo del ranking de Memoreo.', code: 'Código de invitación', copy: 'Copiar', copied: 'Copiado',
+          open: 'Abrir la app y unirme', get: 'Consigue la app',
+          steps: 'En la app, ve a «Ranking» → «Grupos» → «Unirse con un código» e introduce este código.',
+          missing: 'No se encontró ningún código de invitación. Pide el código o el enlace a quien te invitó.' },
+    ru: { title: 'Приглашение в группу', lead: 'Вас пригласили в группу рейтинга Memoreo.', code: 'Код приглашения', copy: 'Копировать', copied: 'Скопировано',
+          open: 'Открыть приложение и вступить', get: 'Скачать приложение',
+          steps: 'В приложении откройте «Рейтинг» → «Группы» → «Войти по коду» и введите этот код.',
+          missing: 'Код приглашения не найден. Попросите код или ссылку у того, кто вас пригласил.' },
+    zh: { title: '群组邀请', lead: '你被邀请加入 Memoreo 排行榜中的群组。', code: '邀请码', copy: '复制', copied: '已复制',
+          open: '打开应用并加入', get: '还没有应用？在这里获取',
+          steps: '在应用中依次点击“排行榜”→“群组”→“用邀请码加入”，输入此邀请码。',
+          missing: '未找到邀请码。请向邀请你的人索取邀请码或链接。' },
+  };
+  const NAMES = { ja: '日本語', en: 'English', es: 'Español', ru: 'Русский', zh: '中文' };
+
+  // コード: # の後の英数字 10 文字(アプリの groupCodeFromLink と同じ読み方)。違えば空
+  function codeFromHash(hash) {
+    let raw = hash.replace(/^#/, '');
+    try { raw = decodeURIComponent(raw); } catch (_) {}
+    const t = raw.toUpperCase().replace(/[^0-9A-Z]/g, '');
+    return t.length === 10 ? t : '';
+  }
+
+  function pickLang() {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (q && T[q]) return q;
+    for (const l of navigator.languages || [navigator.language || 'en']) {
+      const k = String(l).slice(0, 2).toLowerCase();
+      if (T[k]) return k;
+    }
+    return 'en';
+  }
+
+  const $ = (id) => document.getElementById(id);
+
+  function render(lang) {
+    const t = T[lang];
+    const code = codeFromHash(location.hash);
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
+    document.title = t.title + ' – Memoreo';
+    $('title').textContent = t.title;
+    $('lead').textContent = t.lead;
+    $('codeLabel').textContent = t.code;
+    $('code').textContent = code ? code.slice(0, 5) + '-' + code.slice(5) : '';
+    $('copy').textContent = t.copy;
+    $('missing').textContent = t.missing;
+    $('open').textContent = t.open;
+    $('get').textContent = t.get;
+    $('steps').textContent = code ? t.steps : '';
+    $('withCode').hidden = !code;
+    $('missing').hidden = !!code;
+    $('openWrap').hidden = !code;
+    // 「アプリを開いて参加」: 同じ URL を開き直す。# だけが同じ URL は移動にならないので ?o=1 を足す(道は同じ)。
+    // アプリが入っていれば OS がアプリを開く。入っていなければページが読み込み直されるだけ(下のストアへ)
+    $('open').href = location.origin + location.pathname + '?o=1&lang=' + lang + '#' + code;
+    $('copy').onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(code);
+        $('copy').textContent = t.copied;
+      } catch (_) {
+        // 写せない環境では、コードの欄を長押しで写す
+      }
+    };
+    const langs = $('langs');
+    langs.textContent = '';
+    for (const k of Object.keys(T)) {
+      if (k === lang) continue;
+      const a = document.createElement('a');
+      a.href = '?lang=' + k + location.hash;
+      a.textContent = NAMES[k];
+      langs.appendChild(a);
+    }
+  }
+
+  // Google Play の月ごとのキャンペーン(日本時間の年-月)。assets/store-links.js の month() と同じ。JS が動かなければ付かない
+  (function () {
+    const m = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 7);
+    $('googlePlay').href = 'https://play.google.com/store/apps/details?id=com.yolca.memoreo&referrer=' +
+      encodeURIComponent('utm_source=invite&utm_medium=web&utm_campaign=' + m);
+  })();
+
+  render(pickLang());
+  window.addEventListener('hashchange', () => render(pickLang()));
+</script>
+</body>
+</html>
